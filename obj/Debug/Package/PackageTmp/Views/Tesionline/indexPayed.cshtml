@@ -1,0 +1,172 @@
+﻿@model KiLab.Models.Ordine
+
+@{
+    ViewBag.Title = "ordine";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="row">
+    <div class="six columns centered">
+      <section class="tagline">
+        <h3>Preventivo &nbsp;<span class="contact-icon tada"><i class="gen-enclosed foundicon-settings"></i></span>&nbsp<i class="general foundicon-right-arrow"></i>&nbsp;<a href="@Url.Action("personali", "tesionline")"><i class="gen-enclosed foundicon-address-book"></i></a>&nbsp;<i class="general foundicon-right-arrow"></i>&nbsp;<a href="Url.Action("pagamento", "tesionline")"><i class="gen-enclosed foundicon-cart"></i></a></h3>
+      </section>
+    </div>
+  </div>
+  
+
+ 
+ 
+  <section class="blog-container diff">
+    <div class="blog-inner-container">
+    <div class="row">
+      <div class="one columns centered">
+        <span class="work-triangle-top">&nbsp;</span>
+      </div>
+    </div>
+
+    <div class="work-content">
+    <div class="row">
+        <div class="six columns mobile-two">
+            <h3  class="work-title-black">Stampe in Bianco e Nero: </h3>
+        </div>
+        <div class="three columns mobile-two">
+            <h4 class="work-description lead"> @Html.DisplayFor(model => model.StampeBN)</h4>
+        </div>
+        <div class="three columns mobile-two">
+            <h4 class="work-description lead">&#8364; @Html.DisplayFor(model => model.CostoBN)</h4>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="six columns mobile-two">
+            <h3  class="work-title-black">Numero stampe a colori:</h3>
+        </div>
+        <div class="three columns mobile-two">
+            <h4 class="work-description lead">@Html.DisplayFor(model => model.StampeColori)</h4>
+        </div>
+        <div class="three columns mobile-two">
+            <h4 class="work-description lead">&#8364;  @Html.DisplayFor(model => model.CostoCOLORI)</h4>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="six columns mobile-two">
+            <h3  class="work-title-black">Numero di copie della tesi:</h3>
+        </div>
+        <div class="three columns mobile-two">
+            <h4 class="work-description lead">@Html.DisplayFor(model => model.CopieStampare)</h4>
+        </div>
+        <div class="three columns mobile-two">
+            <h4 class="work-description lead"></h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="six columns mobile-two">
+            <h3  class="work-title-black">Totale stampa:</h3>
+        </div>
+        <div class="three columns mobile-two">
+            <h4 class="work-description lead">&nbsp;</h4>
+        </div>
+        <div class="three columns mobile-two">
+            <h4 class="work-description lead">&#8364;  @Html.DisplayFor(model => model.CostoTotale)</h4>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="six columns mobile-two">
+            <h3  class="work-title-black">Stampa fronte e retro:</h3>
+        </div>
+        <div class="three columns mobile-two">
+            <h4 class="work-description lead">  @Html.DisplayFor(model => model.FronteRetro)</h4>
+        </div>
+        <div class="three columns mobile-two">
+            <h4 class="work-description lead">&nbsp;  </h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="six columns mobile-two">
+            <h3  class="work-title-black">Carta plus:</h3>
+        </div>
+        <div class="three columns mobile-two">
+            <h4 class="work-description lead">@Html.DisplayFor(model => model.CartaPlus)</h4>
+        </div>
+        <div class="three columns mobile-two">
+            <h4 class="work-description lead">&#8364; @Html.DisplayFor(model => model.CostoCartaPlus)  </h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="six columns mobile-two">
+            <h3  class="work-title-black">Bozza anticipata (b/n): </h3>
+        </div>
+        <div class="three columns mobile-two">
+            <h4 class="work-description lead">@Html.DisplayFor(model => model.BozzaAcquistata)</h4>
+        </div>
+        <div class="three columns mobile-two">
+            <h4 class="work-description lead">&#8364;  @Html.DisplayFor(model => model.CostoBozza) </h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="six columns mobile-two">
+            <h3  class="work-title-black">Rilegatura:</h3>
+        </div>
+        <div class="three columns mobile-two">
+            <h4 class="work-description lead">@Html.DisplayFor(model => model.Rilegatura.Titolo)</h4>
+        </div>
+        <div class="three columns mobile-two">
+            <h4 class="work-description lead">&#8364;  @Html.DisplayFor(model => model.CostoRillegatura) </h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="six columns mobile-two">
+            <h3  class="work-title-black">Spedizione:</h3>
+        </div>
+        <div class="three columns mobile-two">
+            <h4 class="work-description lead">@Html.DisplayFor(model => model.Spediz.Titolo)</h4>
+        </div>
+        <div class="three columns mobile-two">
+            <h4 class="work-description lead">&#8364; @Html.DisplayFor(model => model.CostoSpedizione)  </h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="six columns mobile-two">
+            <h3  class="work-title-black">Totale IVA inclusa:</h3>
+        </div>
+        <div class="three columns mobile-two">
+            <h4 class="work-description lead">&nbsp;</h4>
+        </div>
+        <div class="three columns mobile-two">
+            <h4 class="work-description lead">&#8364;  @Html.DisplayFor(model => model.CostoTotale)  </h4>
+        </div>
+
+        
+
+    </div>
+    </div>
+    </section>
+ 
+   
+                <b></b>
+            </div>
+            <div id="third">
+                <div class="editor-field">
+                   
+                    
+                </div>
+            </div>
+        </div>
+        <div class="clearer"> </div>
+
+
+        <p>
+            
+        </p>
+    </fieldset>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

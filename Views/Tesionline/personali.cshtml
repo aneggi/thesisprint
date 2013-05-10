@@ -1,0 +1,229 @@
+﻿@model KiLab.Models.Ordine
+
+@{
+    ViewBag.Title = "personali";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+<div class="six columns centered">
+      <section class="tagline">
+        <h3><a href="@Url.Action("index", "tesionline")"><i class="gen-enclosed foundicon-settings"></i></a>&nbsp;<i class="general foundicon-right-arrow"></i>&nbsp;Dati personali&nbsp;<span class="contact-icon tada"><i class="gen-enclosed foundicon-address-book"> </i></span>&nbsp;<i class="general foundicon-right-arrow"></i>&nbsp;<a href="@Url.Action("pagamento", "tesionline")"><i class="gen-enclosed foundicon-cart"></i></a></h3>
+      </section>
+    </div>
+  </div>
+  <section class="blog-container diff">
+    <div class="blog-inner-container">
+    <div class="row">
+      <div class="one columns centered">
+        <span class="work-triangle-top">&nbsp;</span>
+      </div>
+    </div>
+    
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        
+
+        @Html.HiddenFor(model => model.Id)
+
+         <div class="row">
+
+            <div class="three columns mobile-two">
+                Data inserimento:
+            </div>
+            <div class="three columns mobile-two" style="height:35px;">
+                <div class="editor-field">
+                    @Html.DisplayFor(model => model.Data)
+            
+                </div>
+            </div>
+            <div class="three columns mobile-two" style="height:35px;">
+                &nbsp;
+            </div>
+            <div class="three columns mobile-two" style="height:35px;">
+                &nbsp;
+            </div>
+
+
+
+            <div class="three columns mobile-two">
+                Email:
+            </div>
+            <div class="three columns mobile-two">
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Email)
+                    @Html.ValidationMessageFor(model => model.Email)
+                </div>
+            </div>
+            <div class="three columns mobile-two">
+                Numero cellulare:
+            </div>
+            <div class="three columns mobile-two">
+                 <div class="editor-field">
+                    @Html.EditorFor(model => model.Cellulare)
+                    @Html.ValidationMessageFor(model => model.Cellulare)
+                </div>
+            </div>
+        
+            <div class="three columns mobile-two">
+               Codice fiscale:
+            </div>
+            <div class="three columns mobile-two">
+                <div class="editor-field">
+            @Html.EditorFor(model => model.CodFiscalePersonale)
+            @Html.ValidationMessageFor(model => model.CodFiscalePersonale)
+        </div>
+            </div>
+            <div class="six columns mobile-two">
+               &nbsp;
+            </div>
+            </div>
+            <div class="row">
+
+            <div class="three columns mobile-two">
+               &nbsp;
+            </div>
+            <div class="three columns mobile-two">
+                &nbsp;
+            </div>
+            </div>
+            <div class="row">
+
+            <div class="three columns mobile-two">
+                Nome:
+            </div>
+            <div class="three columns mobile-two">
+                
+                <div class="editor-field">
+            @Html.EditorFor(model => model.SpedNome)
+            @Html.ValidationMessageFor(model => model.SpedNome)
+        </div>
+            </div>
+            <div class="three columns mobile-two">
+                Cognome:
+            </div>
+            <div class="three columns mobile-two">
+                <div class="editor-field">
+            @Html.EditorFor(model => model.SpedCognome)
+            @Html.ValidationMessageFor(model => model.SpedCognome)
+        </div>
+            </div>
+            <div class="three columns mobile-two">
+                Indirizzo:
+            </div>
+            <div class="three columns mobile-two">
+                <div class="editor-field">
+            @Html.EditorFor(model => model.SpedIndirizzo)
+            @Html.ValidationMessageFor(model => model.SpedIndirizzo)
+        </div>
+            </div>
+            <div class="three columns mobile-two">
+                Cap:
+            </div>
+            <div class="three columns mobile-two">
+                <div class="editor-field">
+            @Html.EditorFor(model => model.SpedCAP)
+            @Html.ValidationMessageFor(model => model.SpedCAP)
+        </div>
+            </div>
+            <div class="three columns mobile-two">
+                Città
+            </div>
+            <div class="three columns mobile-two">
+                <div class="editor-field">
+            @Html.EditorFor(model => model.SpedCitta)
+            @Html.ValidationMessageFor(model => model.SpedCitta)
+        </div>
+            </div>
+            <div class="three columns mobile-two">
+                Note:
+            </div>
+            <div class="three columns mobile-two">
+                <div class="editor-field">
+            @Html.EditorFor(model => model.Note)
+            @Html.ValidationMessageFor(model => model.Note)
+        </div>
+            </div>
+         <!--   <div class="three columns mobile-two">
+                Data laurea:
+            </div>
+            <div class="three columns mobile-two">
+                <div class="editor-field">
+            @Html.EditorFor(model => model.GiornoLaurea,  new { id = "date" })
+            @Html.ValidationMessageFor(model => model.GiornoLaurea)
+        </div>   </div>-->
+
+            
+
+            
+
+            </div>
+             <div class="row">
+
+         
+            <div class="three columns mobile-two" style="height:35px;">
+                 <h4>Costo totale:</h4>
+            </div>
+            <div class="three columns mobile-two" style="height:35px;">
+                 <div class="editor-field">
+                 <h4>@Html.DisplayFor(model => model.CostoTotale)</h4>
+            
+        </div>
+            </div>
+            
+             
+
+
+            <div class="three columns mobile-two" style="height:35px;">
+                &nbsp;
+            </div>
+            <div class="three columns mobile-two" style="height:35px;">
+               &nbsp;
+            </div>
+           <!-- <div class="three columns mobile-two">
+                <p>
+                 @Html.ActionLink("Preventivo", "Index", "", new { @class = "button secondary" })
+                 </p>
+            </div>-->
+            <div class="three columns mobile-two">
+               <p>
+                <input type="submit" value="Salva e continua" class="button alert" />
+                </p>
+            </div>
+
+
+       </div>
+       
+  
+       
+
+        
+
+        
+    </fieldset>
+}
+</section>
+<div>
+   
+</div>
+
+
+<script>
+
+    jQuery(document).ready(function () {
+        jQuery('#GiornoLaurea').datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+    });
+    
+    </script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

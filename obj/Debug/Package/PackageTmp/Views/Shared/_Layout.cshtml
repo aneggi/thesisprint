@@ -1,0 +1,333 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <head>
+
+
+        <meta charset="utf-8" />
+
+        <script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-5973385-10']);
+            _gaq.push(['_trackPageview']);
+
+            (function () {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+</script>
+        
+        
+        
+        
+
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+        
+
+
+
+
+
+
+
+        <meta name="viewport" content="width=device-width" />
+	    <title>Coffee Thesis &#9829;</title>
+	    <!-- Social icon fonts -->
+	    <link rel="stylesheet" href="@Url.Content("~/css/social_foundicons.css")" />
+ 	    <link rel="stylesheet" href="@Url.Content("~/css/general_enclosed_foundicons.css")" />
+  	    <link rel="stylesheet" href="@Url.Content("~/css/general_foundicons.css")" />
+        <!-- Google fonts -->
+        <link rel="stylesheet" href="@Url.Content("~/css/fonts.css")" />
+	    <!-- Included CSS Files -->
+	    <link rel="stylesheet" href="@Url.Content("~/css/style.css")">
+        
+        
+
+
+	    <script src="@Url.Content("~/js/foundation/modernizr.foundation.js")"></script>
+
+
+
+
+
+    </head>
+    <body>
+        <header class="navigation-container">
+
+
+
+            <div class="row">
+			<div class="six columns">
+				<h1 class="logo"><a href="@Url.Action("index", "home")" ><img src="@Url.Content("~/img/logo.png")" alt="logo"></a></h1>
+				<h4 class="lead lead-title">CoffeeTESI il miglior modo di <span>stampare online</span> la tua tesi di laurea.</h4>
+			</div>
+			<div class="six columns">
+          <button type="button" class="button alert large nav-button-collapse">Navigation Menu
+              <div class="icons-bar-container">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </div>
+          </button>
+				<ul class="nav-bar right main-nav-styles">
+				  <li class="active has-flyout"><a href="#">Home</a>
+					    <ul class="flyout">
+                <li><a href="@Url.Action("index", "home")">Home page</a></li>
+					      <li><a href="@Url.Action("about", "home")">Riguardo a noi</a></li>
+					      <li><a href= "@Url.Action("faqs", "home")">FAQs</a></li>
+					    </ul>
+				  </li>
+					<li class="has-flyout"><a href="@Url.Action("index", "tesionline")">Stampa</a>
+              <ul class="flyout">
+                <li><a href="@Url.Action("index","stato")">Stato</a></li>
+
+                @if (Session["currentOrder"] != null)
+                {
+
+                    <li><a href="@Url.Action("index", "tesionline")">1/3 Preventivo</a></li>
+                    <li><a href="@Url.Action("personali", "tesionline")">2/3 Dati personali</a></li>
+                    <li><a href="@Url.Action("pagamento", "tesionline")">3/3 Pagamento</a></li>
+                }
+                else
+                {
+                       <li><a href="@Url.Action("index", "tesionline")">Nuovo Preventivo</a></li>
+                }
+              </ul>
+          </li>
+					<!--<li class="has-flyout"><a href="#">Blog</a>
+					    <ul class="flyout">
+					    	<li><a href="blog.html">Blog Page</a></li>
+					      <li><a href="single-post.html">Single Post</a></li>
+					    </ul>
+				  </li>-->
+					<li><a href="@Url.Action("contact", "home")">Contatti</a></li>
+
+                    @if (Session["currentOrder"] != null)
+                    {
+                    <li class="has-flyout"><a href="#"><i class="gen-enclosed foundicon-lock"></i></a>
+					    <ul class="flyout">
+					    	<li><a href="#">Ordine: @Session["currentOrder"]</a></li>
+					      <li><a href="@Url.Action("close", "tesionline")">Log Out</a></li>
+					    </ul>
+				  </li>
+                    }
+
+
+				</ul>
+			</div>
+		</div>
+
+
+
+        <!--
+
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
+                </div>
+                <div class="float-right">
+                    <section id="login">
+                        @Html.Partial("_LoginPartial")
+                    </section>
+                    <nav>
+                        <ul id="menu">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            -->
+
+        </header>
+
+
+
+
+
+        <div id="body">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <footer>
+
+
+            <!--
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+                </div>
+            </div>
+            -->
+        
+
+       
+
+
+
+
+
+
+
+        
+	
+  <div class="footer-container">
+      <div class="footer-inner-container">
+        <div class="row">
+        <!--<div class="four columns">
+          <div class="footer-widgets">
+            <h4><span>&nbsp;</span>Twitter Timeline</h4>
+             <address>
+                  <strong>Foundation, Inc.</strong><br>
+                  795 Folsom Ave, Suite 600<br>
+                  San Francisco, CA 94107<br>
+                  <abbr title="Phone">P:</abbr> (123) 456-7890
+                </address> 
+                 <div id="twitter-feed">&nbsp;</div>
+          </div>
+        </div>-->
+        <div class="four columns">
+          <div class="footer-widgets">
+            <h4><span>&nbsp;</span>Informazioni</h4>
+            <ul>
+              <li><a href="@Url.Action("spedizione", "home")">Spedizione</a></li>
+              <li><a href="@Url.Action("pagamento", "home")">Pagamento sicuro</a></li>
+              <!--<li><a href="@Url.Action("condizioni", "home")">Condizioni</a></li>-->
+              <li><a href="@Url.Action("faqs", "home")">FAQs</a></li>
+            </ul>
+          </div>
+        </div>
+        <!--<div class="two columns">
+          <div class="footer-widgets">
+            <h4><span>&nbsp;</span>About</h4>
+            <ul>
+              <li><a href="#">Press</a></li>
+              <li><a href="#">Sell Products</a></li>
+              <li><a href="#">Careers</a></li>
+            </ul>
+          </div>
+        </div>-->
+        <div class="four columns">
+          <div class="footer-widgets">
+            <h4><span>&nbsp;</span>Contatti</h4>
+            <ul>
+              <li><a href="@Url.Action("contact", "home")">Servizio clienti</a></li>
+              <li><a href="@Url.Action("contact", "home")">Contattaci</a></li>
+              <li><a href="@Url.Action("faqs", "home")">FAQs</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="four columns">
+          <div class="footer-widgets">
+            <h4><span>&nbsp;</span>Legal</h4>
+            <ul>
+              <li><a href="#">Coffee Thesis by</a></li>
+              <li><a href="#">Kiitos Srl</a></li>
+              <li><a href="#">P.Iva 02244290223</a></li>
+              <li><a href="#">Trento</a></li>
+            </ul>
+          </div>
+        </div>
+      </div> <!-- end row -->
+          <div class="row">
+          <div class="twelve columns">
+            <div class="subfooter">
+              <div class="row">
+              <div class="six columns">
+                <div class="subfooter-widgets">
+                  <p>&copy; Coffee Thesis All rights Reseved. Proprietà di Kiitos SRL</p>
+                </div>
+              </div>
+              <div class="six columns right">
+                <div class="subfooter-widgets">
+                  <ul class="right">
+                    <li><a href="https://twitter.com/CoffeeTesi" data-width="90" title="Twitter" class="twitter has-tip tip-top"><i class="social foundicon-twitter"></i></a></li>
+                    <li><a href="http://www.facebook.com/CoffeeTesi" data-width="90" title="Facebook" class="facebook has-tip tip-top"><i class="social foundicon-facebook"></i></a></li>
+                    <!--<li><a href="#" data-width="90" title="Pinterest" class="pinterest has-tip tip-top"><i class="social foundicon-pinterest"></i></a></li>
+                    <li><a href="#" data-width="90" title="Dribbble" class="dribbble has-tip tip-top"><i class="social foundicon-dribbble"></i></a></li>
+                    <li><a href="#" data-width="90" title="Path" class="path has-tip tip-top"><i class="social foundicon-path"></i></a></li>-->
+                     <li><a href="#" data-width="90" title="Google+" class="path has-tip tip-top"><i class="social foundicon-google-plus"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div> <!-- end row -->
+            </div> <!-- end subfooter -->
+          </div> <!-- end twelve -->
+          </div><!-- end row -->
+        </div> <!-- end footer-container -->
+  </div> <!-- end footer-container -->
+  </footer>
+
+
+	<!-- Included JS Files (Uncompressed) -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script>      window.jQuery || document.write('<script src="js/foundation/jquery.js"><\/script>')</script>
+	<script src="@Url.Content("~/js/twitter.js")"></script>
+	
+	<script src="@Url.Content("~/js/foundation/jquery.foundation.tabs.js")"></script>
+	
+	<script src="@Url.Content("~/js/foundation/jquery.foundation.tooltips.js")"></script>
+	
+	<script src="@Url.Content("~/js/foundation/jquery.foundation.reveal.js")"></script>
+	
+	<script src="@Url.Content("~/js/foundation/jquery.foundation.mediaQueryToggle.js")"></script>
+	
+	<script src="@Url.Content("~/js/foundation/jquery.event.move.js")"></script>
+	
+	<script src="@Url.Content("~/js/foundation/jquery.foundation.buttons.js")"></script>
+	
+	<script src="@Url.Content("~/js/foundation/jquery.foundation.clearing.js")"></script>
+	
+	<script src="@Url.Content("~/js/foundation/jquery.foundation.forms.js")"></script>
+	
+	<script src="@Url.Content("~/js/foundation/jquery.foundation.navigation.js")"></script>
+	
+	<script src="@Url.Content("~/js/foundation/jquery.event.swipe.js")"></script>
+	
+	<script src="@Url.Content("~/js/foundation/jquery.foundation.orbit.js")"></script>
+	
+	<script src="@Url.Content("~/js/foundation/jquery.foundation.joyride.js")"></script>
+	
+	<script src="@Url.Content("~/js/foundation/jquery.foundation.alerts.js")"></script>
+	
+	<script src="@Url.Content("~/js/foundation/jquery.placeholder.js")"></script>
+	
+	<script src="@Url.Content("~/js/foundation/jquery.foundation.magellan.js")"></script>
+	
+	<script src="@Url.Content("~/js/foundation/jquery.foundation.topbar.js")"></script>
+	
+	<script src="@Url.Content("~/js/foundation/jquery.foundation.accordion.js")"></script>
+	
+	<script src="@Url.Content("~/js/foundation/jquery.cookie.js")"></script>
+	
+    
+  <!-- Application Javascript, safe to override -->
+  <script src="@Url.Content("~/js/foundation/app.js")"></script>
+
+   @Scripts.Render("~/bundles/jquery")
+     @RenderSection("scripts", required: false)
+
+
+    </body>
+</html>

@@ -1,0 +1,387 @@
+﻿@model KiLab.Models.Ordine
+
+@{
+    ViewBag.Title = "ordine";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+
+
+    $(function () {
+        $('#Calculate').click(function () {
+
+            var bn = $("#StampeBN").val();
+            var colori = $("#StampeColori").val();
+            var copie = $("#CopieStampare").val();
+            var colori = $("#StampeColori").val();
+            var rilegatura = $("#TipoRillegatura").val();
+            var Spedizione = $("#SpedTipo").val();
+
+            var costoBN = bn * 0.05;
+            var costoColori = colori * 0.40;
+            var costoStampa = (costoBN + costoColori) * copie;
+
+            var costoRill = 1000.00;
+            switch (rilegatura) {
+                case (rilegatura = '1'):
+                    costoRill = 0.0;
+                    break;
+                case (rilegatura = '2'):
+                    costoRill = 10.0 * copie;
+                    break;
+                case (rilegatura = '4'):
+                    costoRill = 20.0 * copie;
+                    break;
+                default:
+                    costoRill = 1000.0;
+                    break;
+
+            }
+            var costoSpedizione = 1000.00;
+            switch (Spedizione) {
+                case (Spedizione = '1'):
+                    costoSpedizione = 10;
+                    break;
+                default:
+                    costoSpedizione = 1000;
+            }
+            //alert($("#CartaPlus").attr('checked'));
+            //alert($("#BozzaAcquistata").attr('checked'));
+
+            if ($("#CartaPlus").attr('checked')) {
+                costoCartaPlus = (((0.01 * bn) + (0.01* colori)) * copie);
+            } else {
+                costoCartaPlus = 0.0;
+            }
+            if ($("#BozzaAcquistata").attr('checked')) {
+                costoBozza = ((colori + bn) * 0, 05) + 4.0;
+            } else {
+                costoBozza = 0.0;
+            }
+
+            var costoTotale = costoStampa + costoBozza + costoSpedizione + costoCartaPlus + costoRill;
+
+
+            $("#CostoBN").val(costoBN.toString().replace(".", ",")); //.toString().replace(".",",")
+            $("#CostoCOLORI").val(costoColori.toString().replace(".", ","));
+            $("#costoStampa").val(costoStampa.toString().replace(".", ","));
+
+            $("#CostoCartaPlus").val(costoCartaPlus.toString().replace(".", ","));
+            $("#CostoRillegatura").val(costoRill.toString().replace(".", ","));
+            $("#CostoBozza").val(costoBozza.toString().replace(".", ","));
+            $("#CostoSpedizione").val(costoSpedizione.toString().replace(".", ","));
+            $("#CostoTotale").val(costoTotale.toString().replace(".", ","));
+
+
+            $("#CostoBNPub").val(costoBN.toString().replace(".", ",")); //.toString().replace(".",",")
+            $("#CostoColoriPub").val(costoColori.toString().replace(".", ","));
+            $("#costoStampaPub").val(costoStampa.toString().replace(".", ","));
+
+            $("#CostoCartaPlusPub").val(costoCartaPlus.toString().replace(".", ","));
+            $("#CostoRillegaturaPub").val(costoRill.toString().replace(".", ","));
+            $("#CostoBozzaPub").val(costoBozza.toString().replace(".", ","));
+            $("#CostoSpedizionePub").val(costoSpedizione.toString().replace(".", ","));
+            $("#CostoTotalePub").val(costoTotale.toString().replace(".", ","));
+
+        });
+    });
+
+    $(document).ready(function () {
+
+        
+    });
+
+
+</script>
+
+
+<div class="row">
+    <div class="six columns centered">
+      <section class="tagline">
+        <h3>Preventivo &nbsp;<span class="contact-icon tada"><i class="gen-enclosed foundicon-settings"></i></span>&nbsp<i class="general foundicon-right-arrow"></i>&nbsp;<i class="gen-enclosed foundicon-address-book"></i>&nbsp;<i class="general foundicon-right-arrow"></i>&nbsp;<i class="gen-enclosed foundicon-cart"></i></h3>
+      </section>
+    </div>
+  </div>
+  <section class="blog-container diff">
+    <div class="blog-inner-container">
+    <div class="row">
+      <div class="one columns centered">
+        <span class="work-triangle-top">&nbsp;</span>
+      </div>
+    </div>
+
+   
+
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        
+
+        <div class="row">
+            <div id="first">
+                <div class="editor-label">
+                Stampe in Bianco e Nero
+                </div>
+            </div>
+             <div id="second">
+           
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.StampeBN)
+                    @Html.ValidationMessageFor(model => model.StampeBN)
+                </div>
+                </div>
+                <div id="third">
+                    <div class="editor-field">
+                        @Html.HiddenFor(model => model.CostoBN)
+                        <input id="CostoBNPub" type="text" disabled="disabled" /> 
+                    </div>
+                </div>
+        </div>
+        <div class="clearer"> </div>
+        <div class="row">
+            <div id="first">
+                <div class="editor-label">
+                 Numero stampe a colori:
+                </div>
+            </div>
+             <div id="second">
+            
+
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.StampeColori)
+                    @Html.ValidationMessageFor(model => model.StampeColori)
+                </div>
+                </div>
+                <div id="third">
+                 <div class="editor-field">
+                    @Html.HiddenFor(model => model.CostoCOLORI)
+                    <input id="CostoColoriPub" type="text" disabled="disabled" /> 
+                </div>
+                </div>
+        </div>
+
+        <div class="clearer"> </div>
+
+
+        <div class="row">
+            <div id="first">
+                <div class="editor-label">
+                    Numero di copie della tesi:
+                </div>
+            </div>
+            <div id="second">
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.CopieStampare)
+                    @Html.ValidationMessageFor(model => model.CopieStampare)
+                </div>
+            </div>
+            <div id="third">
+                &nbsp;
+            </div>
+        </div>
+        <div class="clearer"> </div>
+
+        <div class="row">
+            <div id="first">
+                <div class="editor-label">
+                  &nbsp;
+                </div>
+            </div>
+            <div id="second">
+                Totale stampa:
+            </div>
+            <div id="third">
+                <input id="costoStampa" type="text" disabled="disabled" />
+            </div>
+        </div>
+
+
+        <div class="clearer"> </div>
+
+
+
+        
+        <div class="row" style="height:47px;">
+            <div id="first">
+                <div class="editor-label">
+                  <div class="editor-label">
+                        Stampa fronte e retro:
+                    </div>
+                    
+                </div>
+            </div>
+            <div id="second">
+                <div class="editor-field">
+                        @Html.EditorFor(model => model.FronteRetro)
+                        @Html.ValidationMessageFor(model => model.FronteRetro)
+                    </div>
+            </div>
+            <div id="third">
+                &nbsp;
+            </div>
+        </div>
+
+
+        <div class="clearer"> </div>
+
+        <div class="row">
+            <div id="first">
+                <div class="editor-label">
+                  Carta plus:
+                </div>
+            </div>
+            <div id="second">
+                
+                <div class="editor-field">
+                    
+                    @Html.EditorFor(model => model.CartaPlus)
+                    @Html.ValidationMessageFor(model => model.CartaPlus)
+                </div>
+            </div>
+            <div id="third">
+                <div class="editor-field">
+                    @Html.HiddenFor(model => model.CostoCartaPlus)
+                    <input id="CostoCartaPlusPub" type="text" disabled="disabled" /> 
+                   
+                </div>
+            </div>
+        </div>
+        <div class="clearer"> </div>
+
+        <div class="row">
+            <div id="first">
+                <div class="editor-label">
+                 Bozza anticipata (b/n)
+                </div>
+            </div>
+            <div id="second">
+                 <div class="editor-field">
+                    @Html.EditorFor(model => model.BozzaAcquistata)
+                    @Html.ValidationMessageFor(model => model.BozzaAcquistata)
+                </div>
+            </div>
+            <div id="third">
+                <div class="editor-field">
+                    @Html.HiddenFor(model => model.CostoBozza)
+                    <input id="CostoBozzaPub" type="text" disabled="disabled" />
+                   
+                </div>
+            </div>
+        </div>
+        <div class="clearer"> </div>
+
+        <div class="row">
+            <div id="first">
+                <div class="editor-label">
+                 Rilegatura:
+                </div>
+            </div>
+            <div id="second">
+                
+                    <!--@Html.DropDownList("TipoRillegatura", new SelectList(ViewBag.Rillegature, "RilegaturaID", "Titolo"))-->
+
+
+                    @foreach (KiLab.Models.Rilegatura r in ViewBag.Rillegature)
+                    {
+                        
+                        @Html.RadioButtonFor(model => model.TipoRillegatura, r.RilegaturaID)
+                        
+                        @r.Titolo <img src="@Url.Content(r.Foto)" alt="blog" width="45px" height="45px">
+                    }
+
+            </div>
+                
+            <div id="third">
+                <div class="editor-field">
+                    @Html.HiddenFor(model => model.CostoRillegatura)
+                    <input id="CostoRillegaturaPub" type="text" disabled="disabled" />
+                </div>
+            </div>
+        </div>
+        <div class="clearer"> </div>
+
+        <div class="row">
+            <div id="first">
+                <div class="editor-label">
+                  Spedizione:
+                </div>
+            </div>
+            <div id="second">
+                 @Html.DropDownList("SpedTipo", new SelectList(ViewBag.Spedizioni, "SpedizID", "Titolo"))
+            </div>
+            <div id="third">
+                <div class="editor-field">
+                    @Html.HiddenFor(model => model.CostoSpedizione)
+                    <input id="CostoSpedizionePub" type="text" disabled="disabled" />
+                </div>
+            </div>
+        </div>
+        <div class="clearer"> </div>
+
+        <div class="row">
+            <div id="first">
+                <div class="editor-label">
+                 &nbsp;
+                </div>
+            </div>
+            <div id="second">
+                <b>Totale IVA inclusa:</b>
+            </div>
+            <div id="third">
+                <div class="editor-field">
+                    @Html.HiddenFor(model => model.CostoTotale)
+                    <input id="CostoTotalePub" type="text" disabled="disabled" />
+                </div>
+            </div>
+        </div>
+        <div class="clearer"> </div>
+
+
+        <div class="row">
+            <div id="first">
+                &nbsp;
+            </div>
+            <div id="second">
+                &nbsp;
+            </div>
+            <div id="third">
+               &nbsp;
+            </div>
+        </div>
+        <div class="clearer"> </div>
+
+
+        <div class="row">
+            <div id="first">
+                &nbsp;
+            </div>
+            <div id="second">
+                <div class="Calculate">
+            <input id="Calculate" type="button" class="button black large" value="Calcola preventivo" />
+        </div>
+            </div>
+            <div id="third">
+               <input type="submit" value="Avanti" class="button alert large" />
+            </div>
+        </div>
+        <div class="clearer"> </div>
+        
+        
+        
+        
+
+
+        <p>
+            
+        </p>
+    </fieldset>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

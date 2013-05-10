@@ -1,0 +1,78 @@
+﻿@model KiLab.Models.File
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>File</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Nome)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nome)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PercorsoFisico)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PercorsoFisico)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Note)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Note)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Stampato)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Stampato)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Bozza)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Bozza)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Eliminato)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Eliminato)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DimensioneKb)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DimensioneKb)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Ordine.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Ordine.Email)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Data)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Data)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

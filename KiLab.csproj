@@ -1,0 +1,801 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E21123DE-AAE9-4946-BC08-BA322C003053}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KiLab</RootNamespace>
+    <AssemblyName>KiLab</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\packages\AjaxControlToolkit.4.1.60919\lib\40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.GData.AccessControl">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Google\Google Data API SDK\Redist\Google.GData.AccessControl.DLL</HintPath>
+    </Reference>
+    <Reference Include="Google.GData.Analytics">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Google\Google Data API SDK\Redist\Google.GData.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.GData.Apps">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Google\Google Data API SDK\Redist\Google.GData.Apps.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.GData.Blogger">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Google\Google Data API SDK\Redist\Google.GData.Blogger.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.GData.Calendar">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Google\Google Data API SDK\Redist\Google.GData.Calendar.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.GData.Client">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Google\Google Data API SDK\Redist\Google.GData.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.GData.Contacts">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Google\Google Data API SDK\Redist\Google.GData.Contacts.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.GData.ContentForShopping">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Google\Google Data API SDK\Redist\Google.GData.ContentForShopping.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.GData.Documents">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Google\Google Data API SDK\Redist\Google.GData.Documents.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.GData.Extensions">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Google\Google Data API SDK\Redist\Google.GData.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.GData.Photos">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Google\Google Data API SDK\Redist\Google.GData.Photos.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.GData.Spreadsheets">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Google\Google Data API SDK\Redist\Google.GData.Spreadsheets.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.GData.WebmasterTools">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Google\Google Data API SDK\Redist\Google.GData.WebmasterTools.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.GData.YouTube">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Google\Google Data API SDK\Redist\Google.GData.YouTube.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\AjaxControlToolkit.4.1.60919\lib\40\SanitizerProviders\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SanitizerProviders">
+      <HintPath>..\packages\AjaxControlToolkit.4.1.60919\lib\40\SanitizerProviders\SanitizerProviders.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebPages.OAuth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.OAuth.2.0.20710.0\lib\net40\Microsoft.Web.WebPages.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.2.0.20710.0\lib\net40\WebMatrix.WebData.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.AspNet, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.AspNet.4.0.3.12153\lib\net40-full\DotNetOpenAuth.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="admin\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Config.aspx.cs">
+      <DependentUpon>Config.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Config.aspx.designer.cs">
+      <DependentUpon>Config.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\logs.aspx.cs">
+      <DependentUpon>logs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\logs.aspx.designer.cs">
+      <DependentUpon>logs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\AuthConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\StatoController.cs" />
+    <Compile Include="Controllers\TesionlineController.cs" />
+    <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\gOrder.cs" />
+    <Compile Include="Models\KiLabContext.cs" />
+    <Compile Include="Models\MRilegatura.cs" />
+    <Compile Include="Models\MSpedizione.cs" />
+    <Compile Include="Models\Tesi.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Tesi.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TesionlineContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\SendMail.cs" />
+    <Compile Include="admin\ipnhandler.aspx.cs">
+      <DependentUpon>ipnhandler.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\ipnhandler.aspx.designer.cs">
+      <DependentUpon>ipnhandler.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin\Config.aspx" />
+    <Content Include="admin\default.aspx" />
+    <Content Include="admin\logs.aspx" />
+    <Content Include="admin\Styles\Site.css" />
+    <Content Include="App_Data\Tesiprint.sdf" />
+    <Content Include="Content\jquery-1.8.3.js" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="css\accessibility_foundicons.css" />
+    <Content Include="css\blitzer\images\ui-bg_diagonals-thick_75_f3d8d8_40x40.png" />
+    <Content Include="css\blitzer\images\ui-bg_dots-small_65_a6a6a6_2x2.png" />
+    <Content Include="css\blitzer\images\ui-bg_flat_0_333333_40x100.png" />
+    <Content Include="css\blitzer\images\ui-bg_flat_65_ffffff_40x100.png" />
+    <Content Include="css\blitzer\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="css\blitzer\images\ui-bg_glass_55_fbf8ee_1x400.png" />
+    <Content Include="css\blitzer\images\ui-bg_highlight-hard_100_eeeeee_1x100.png" />
+    <Content Include="css\blitzer\images\ui-bg_highlight-hard_100_f6f6f6_1x100.png" />
+    <Content Include="css\blitzer\images\ui-bg_highlight-soft_15_cc0000_1x100.png" />
+    <Content Include="css\blitzer\images\ui-icons_004276_256x240.png" />
+    <Content Include="css\blitzer\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="css\blitzer\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\blitzer\jquery-ui-1.9.2.custom.css" />
+    <Content Include="css\blitzer\jquery-ui-1.9.2.custom.min.css" />
+    <Content Include="css\fc-webicons.css" />
+    <Content Include="css\fonts.css" />
+    <Content Include="css\general_enclosed_foundicons.css" />
+    <Content Include="css\general_foundicons.css" />
+    <Content Include="css\social_foundicons.css" />
+    <Content Include="css\style.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\accessibility_foundicons.svg" />
+    <Content Include="fonts\general_enclosed_foundicons.svg" />
+    <Content Include="fonts\general_foundicons.svg" />
+    <Content Include="fonts\social_foundicons.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="img\blog\blog-1.jpg" />
+    <Content Include="img\blog\blog-2.jpg" />
+    <Content Include="img\blog\blog-3.jpg" />
+    <Content Include="img\blog\blog-3.png" />
+    <Content Include="img\blog\blog-4.png" />
+    <Content Include="img\blog\blog-5.png" />
+    <Content Include="img\blog\blog-6.png" />
+    <Content Include="img\blog\fella.png" />
+    <Content Include="img\blog\fella2-post.png" />
+    <Content Include="img\blog\fella2.png" />
+    <Content Include="img\blog\pop-1.jpg" />
+    <Content Include="img\blog\pop-2.jpg" />
+    <Content Include="img\blog\pop-3.jpg" />
+    <Content Include="img\blog\pop-4.jpg" />
+    <Content Include="img\blog\pop-5.jpg" />
+    <Content Include="img\blog\pop-6.jpg" />
+    <Content Include="img\blog\slide2_2.png" />
+    <Content Include="img\footer.jpg" />
+    <Content Include="img\foundation\orbit\bullets.jpg" />
+    <Content Include="img\foundation\orbit\left-arrow-small.png" />
+    <Content Include="img\foundation\orbit\left-arrow.png" />
+    <Content Include="img\foundation\orbit\loading.gif" />
+    <Content Include="img\foundation\orbit\mask-black.png" />
+    <Content Include="img\foundation\orbit\pause-black.png" />
+    <Content Include="img\foundation\orbit\right-arrow-small.png" />
+    <Content Include="img\foundation\orbit\right-arrow.png" />
+    <Content Include="img\foundation\orbit\rotator-black.png" />
+    <Content Include="img\foundation\orbit\timer-black.png" />
+    <Content Include="img\list-icon.png" />
+    <Content Include="img\logo %28copy%29.png" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\slider\1.jpg" />
+    <Content Include="img\slider\1.png" />
+    <Content Include="img\slider\2.jpg" />
+    <Content Include="img\slider\2.png" />
+    <Content Include="img\slider\3.jpg" />
+    <Content Include="img\slider\3.png" />
+    <Content Include="img\slider\4.jpg" />
+    <Content Include="img\slider\5.jpg" />
+    <Content Include="img\slider\slyder_check.jpg" />
+    <Content Include="img\slider\slyder_tesi.jpg" />
+    <Content Include="img\social-icons\fc-webicon-aboutme-m.png" />
+    <Content Include="img\social-icons\fc-webicon-aboutme-s.png" />
+    <Content Include="img\social-icons\fc-webicon-aboutme.png" />
+    <Content Include="img\social-icons\fc-webicon-aboutme.svg" />
+    <Content Include="img\social-icons\fc-webicon-adn-m.png" />
+    <Content Include="img\social-icons\fc-webicon-adn-s.png" />
+    <Content Include="img\social-icons\fc-webicon-adn.png" />
+    <Content Include="img\social-icons\fc-webicon-adn.svg" />
+    <Content Include="img\social-icons\fc-webicon-android-m.png" />
+    <Content Include="img\social-icons\fc-webicon-android-s.png" />
+    <Content Include="img\social-icons\fc-webicon-android.png" />
+    <Content Include="img\social-icons\fc-webicon-android.svg" />
+    <Content Include="img\social-icons\fc-webicon-apple-m.png" />
+    <Content Include="img\social-icons\fc-webicon-apple-s.png" />
+    <Content Include="img\social-icons\fc-webicon-apple.png" />
+    <Content Include="img\social-icons\fc-webicon-apple.svg" />
+    <Content Include="img\social-icons\fc-webicon-behance-m.png" />
+    <Content Include="img\social-icons\fc-webicon-behance-s.png" />
+    <Content Include="img\social-icons\fc-webicon-behance.png" />
+    <Content Include="img\social-icons\fc-webicon-behance.svg" />
+    <Content Include="img\social-icons\fc-webicon-bitbucket-m.png" />
+    <Content Include="img\social-icons\fc-webicon-bitbucket-s.png" />
+    <Content Include="img\social-icons\fc-webicon-bitbucket.png" />
+    <Content Include="img\social-icons\fc-webicon-bitbucket.svg" />
+    <Content Include="img\social-icons\fc-webicon-creativecloud-m.png" />
+    <Content Include="img\social-icons\fc-webicon-creativecloud-s.png" />
+    <Content Include="img\social-icons\fc-webicon-creativecloud.png" />
+    <Content Include="img\social-icons\fc-webicon-creativecloud.svg" />
+    <Content Include="img\social-icons\fc-webicon-dribbble-m.png" />
+    <Content Include="img\social-icons\fc-webicon-dribbble-s.png" />
+    <Content Include="img\social-icons\fc-webicon-dribbble.png" />
+    <Content Include="img\social-icons\fc-webicon-dribbble.svg" />
+    <Content Include="img\social-icons\fc-webicon-dropbox-m.png" />
+    <Content Include="img\social-icons\fc-webicon-dropbox-s.png" />
+    <Content Include="img\social-icons\fc-webicon-dropbox.png" />
+    <Content Include="img\social-icons\fc-webicon-dropbox.svg" />
+    <Content Include="img\social-icons\fc-webicon-evernote-m.png" />
+    <Content Include="img\social-icons\fc-webicon-evernote-s.png" />
+    <Content Include="img\social-icons\fc-webicon-evernote.png" />
+    <Content Include="img\social-icons\fc-webicon-evernote.svg" />
+    <Content Include="img\social-icons\fc-webicon-facebook-m.png" />
+    <Content Include="img\social-icons\fc-webicon-facebook-s.png" />
+    <Content Include="img\social-icons\fc-webicon-facebook.png" />
+    <Content Include="img\social-icons\fc-webicon-facebook.svg" />
+    <Content Include="img\social-icons\fc-webicon-flickr-m.png" />
+    <Content Include="img\social-icons\fc-webicon-flickr-s.png" />
+    <Content Include="img\social-icons\fc-webicon-flickr.png" />
+    <Content Include="img\social-icons\fc-webicon-flickr.svg" />
+    <Content Include="img\social-icons\fc-webicon-foursquare-m.png" />
+    <Content Include="img\social-icons\fc-webicon-foursquare-s.png" />
+    <Content Include="img\social-icons\fc-webicon-foursquare.png" />
+    <Content Include="img\social-icons\fc-webicon-foursquare.svg" />
+    <Content Include="img\social-icons\fc-webicon-git-m.png" />
+    <Content Include="img\social-icons\fc-webicon-git-s.png" />
+    <Content Include="img\social-icons\fc-webicon-git.png" />
+    <Content Include="img\social-icons\fc-webicon-git.svg" />
+    <Content Include="img\social-icons\fc-webicon-github-m.png" />
+    <Content Include="img\social-icons\fc-webicon-github-s.png" />
+    <Content Include="img\social-icons\fc-webicon-github.png" />
+    <Content Include="img\social-icons\fc-webicon-github.svg" />
+    <Content Include="img\social-icons\fc-webicon-googleplay-m.png" />
+    <Content Include="img\social-icons\fc-webicon-googleplay-s.png" />
+    <Content Include="img\social-icons\fc-webicon-googleplay.png" />
+    <Content Include="img\social-icons\fc-webicon-googleplay.svg" />
+    <Content Include="img\social-icons\fc-webicon-googleplus-m.png" />
+    <Content Include="img\social-icons\fc-webicon-googleplus-s.png" />
+    <Content Include="img\social-icons\fc-webicon-googleplus.png" />
+    <Content Include="img\social-icons\fc-webicon-googleplus.svg" />
+    <Content Include="img\social-icons\fc-webicon-html5-m.png" />
+    <Content Include="img\social-icons\fc-webicon-html5-s.png" />
+    <Content Include="img\social-icons\fc-webicon-html5.png" />
+    <Content Include="img\social-icons\fc-webicon-html5.svg" />
+    <Content Include="img\social-icons\fc-webicon-icloud-m.png" />
+    <Content Include="img\social-icons\fc-webicon-icloud-s.png" />
+    <Content Include="img\social-icons\fc-webicon-icloud.png" />
+    <Content Include="img\social-icons\fc-webicon-icloud.svg" />
+    <Content Include="img\social-icons\fc-webicon-instagram-m.png" />
+    <Content Include="img\social-icons\fc-webicon-instagram-s.png" />
+    <Content Include="img\social-icons\fc-webicon-instagram.png" />
+    <Content Include="img\social-icons\fc-webicon-instagram.svg" />
+    <Content Include="img\social-icons\fc-webicon-lastfm-m.png" />
+    <Content Include="img\social-icons\fc-webicon-lastfm-s.png" />
+    <Content Include="img\social-icons\fc-webicon-lastfm.png" />
+    <Content Include="img\social-icons\fc-webicon-lastfm.svg" />
+    <Content Include="img\social-icons\fc-webicon-linkedin-m.png" />
+    <Content Include="img\social-icons\fc-webicon-linkedin-s.png" />
+    <Content Include="img\social-icons\fc-webicon-linkedin.png" />
+    <Content Include="img\social-icons\fc-webicon-linkedin.svg" />
+    <Content Include="img\social-icons\fc-webicon-mail-m.png" />
+    <Content Include="img\social-icons\fc-webicon-mail-s.png" />
+    <Content Include="img\social-icons\fc-webicon-mail.png" />
+    <Content Include="img\social-icons\fc-webicon-mail.svg" />
+    <Content Include="img\social-icons\fc-webicon-mercurial-m.png" />
+    <Content Include="img\social-icons\fc-webicon-mercurial-s.png" />
+    <Content Include="img\social-icons\fc-webicon-mercurial.png" />
+    <Content Include="img\social-icons\fc-webicon-mercurial.svg" />
+    <Content Include="img\social-icons\fc-webicon-mixi-m.png" />
+    <Content Include="img\social-icons\fc-webicon-mixi-s.png" />
+    <Content Include="img\social-icons\fc-webicon-mixi.png" />
+    <Content Include="img\social-icons\fc-webicon-mixi.svg" />
+    <Content Include="img\social-icons\fc-webicon-msn-m.png" />
+    <Content Include="img\social-icons\fc-webicon-msn-s.png" />
+    <Content Include="img\social-icons\fc-webicon-msn.png" />
+    <Content Include="img\social-icons\fc-webicon-msn.svg" />
+    <Content Include="img\social-icons\fc-webicon-orkut-m.png" />
+    <Content Include="img\social-icons\fc-webicon-orkut-s.png" />
+    <Content Include="img\social-icons\fc-webicon-orkut.png" />
+    <Content Include="img\social-icons\fc-webicon-orkut.svg" />
+    <Content Include="img\social-icons\fc-webicon-pinterest-m.png" />
+    <Content Include="img\social-icons\fc-webicon-pinterest-s.png" />
+    <Content Include="img\social-icons\fc-webicon-pinterest.png" />
+    <Content Include="img\social-icons\fc-webicon-pinterest.svg" />
+    <Content Include="img\social-icons\fc-webicon-quora-m.png" />
+    <Content Include="img\social-icons\fc-webicon-quora-s.png" />
+    <Content Include="img\social-icons\fc-webicon-quora.png" />
+    <Content Include="img\social-icons\fc-webicon-quora.svg" />
+    <Content Include="img\social-icons\fc-webicon-rdio-m.png" />
+    <Content Include="img\social-icons\fc-webicon-rdio-s.png" />
+    <Content Include="img\social-icons\fc-webicon-rdio.png" />
+    <Content Include="img\social-icons\fc-webicon-rdio.svg" />
+    <Content Include="img\social-icons\fc-webicon-renren-m.png" />
+    <Content Include="img\social-icons\fc-webicon-renren-s.png" />
+    <Content Include="img\social-icons\fc-webicon-renren.png" />
+    <Content Include="img\social-icons\fc-webicon-renren.svg" />
+    <Content Include="img\social-icons\fc-webicon-rss-m.png" />
+    <Content Include="img\social-icons\fc-webicon-rss-s.png" />
+    <Content Include="img\social-icons\fc-webicon-rss.png" />
+    <Content Include="img\social-icons\fc-webicon-rss.svg" />
+    <Content Include="img\social-icons\fc-webicon-skitch-m.png" />
+    <Content Include="img\social-icons\fc-webicon-skitch-s.png" />
+    <Content Include="img\social-icons\fc-webicon-skitch.png" />
+    <Content Include="img\social-icons\fc-webicon-skitch.svg" />
+    <Content Include="img\social-icons\fc-webicon-skype-m.png" />
+    <Content Include="img\social-icons\fc-webicon-skype-s.png" />
+    <Content Include="img\social-icons\fc-webicon-skype.png" />
+    <Content Include="img\social-icons\fc-webicon-skype.svg" />
+    <Content Include="img\social-icons\fc-webicon-soundcloud-m.png" />
+    <Content Include="img\social-icons\fc-webicon-soundcloud-s.png" />
+    <Content Include="img\social-icons\fc-webicon-soundcloud.png" />
+    <Content Include="img\social-icons\fc-webicon-soundcloud.svg" />
+    <Content Include="img\social-icons\fc-webicon-spotify-m.png" />
+    <Content Include="img\social-icons\fc-webicon-spotify-s.png" />
+    <Content Include="img\social-icons\fc-webicon-spotify.png" />
+    <Content Include="img\social-icons\fc-webicon-spotify.svg" />
+    <Content Include="img\social-icons\fc-webicon-stackoverflow-m.png" />
+    <Content Include="img\social-icons\fc-webicon-stackoverflow-s.png" />
+    <Content Include="img\social-icons\fc-webicon-stackoverflow.png" />
+    <Content Include="img\social-icons\fc-webicon-stackoverflow.svg" />
+    <Content Include="img\social-icons\fc-webicon-stumbleupon-m.png" />
+    <Content Include="img\social-icons\fc-webicon-stumbleupon-s.png" />
+    <Content Include="img\social-icons\fc-webicon-stumbleupon.png" />
+    <Content Include="img\social-icons\fc-webicon-stumbleupon.svg" />
+    <Content Include="img\social-icons\fc-webicon-svn-m.png" />
+    <Content Include="img\social-icons\fc-webicon-svn-s.png" />
+    <Content Include="img\social-icons\fc-webicon-svn.png" />
+    <Content Include="img\social-icons\fc-webicon-svn.svg" />
+    <Content Include="img\social-icons\fc-webicon-tent-m.png" />
+    <Content Include="img\social-icons\fc-webicon-tent-s.png" />
+    <Content Include="img\social-icons\fc-webicon-tent.png" />
+    <Content Include="img\social-icons\fc-webicon-tent.svg" />
+    <Content Include="img\social-icons\fc-webicon-tripadvisor-m.png" />
+    <Content Include="img\social-icons\fc-webicon-tripadvisor-s.png" />
+    <Content Include="img\social-icons\fc-webicon-tripadvisor.png" />
+    <Content Include="img\social-icons\fc-webicon-tripadvisor.svg" />
+    <Content Include="img\social-icons\fc-webicon-tumblr-m.png" />
+    <Content Include="img\social-icons\fc-webicon-tumblr-s.png" />
+    <Content Include="img\social-icons\fc-webicon-tumblr.png" />
+    <Content Include="img\social-icons\fc-webicon-tumblr.svg" />
+    <Content Include="img\social-icons\fc-webicon-twitter-m.png" />
+    <Content Include="img\social-icons\fc-webicon-twitter-s.png" />
+    <Content Include="img\social-icons\fc-webicon-twitter.png" />
+    <Content Include="img\social-icons\fc-webicon-twitter.svg" />
+    <Content Include="img\social-icons\fc-webicon-vimeo-m.png" />
+    <Content Include="img\social-icons\fc-webicon-vimeo-s.png" />
+    <Content Include="img\social-icons\fc-webicon-vimeo.png" />
+    <Content Include="img\social-icons\fc-webicon-vimeo.svg" />
+    <Content Include="img\social-icons\fc-webicon-weibo-m.png" />
+    <Content Include="img\social-icons\fc-webicon-weibo-s.png" />
+    <Content Include="img\social-icons\fc-webicon-weibo.png" />
+    <Content Include="img\social-icons\fc-webicon-weibo.svg" />
+    <Content Include="img\social-icons\fc-webicon-windows-m.png" />
+    <Content Include="img\social-icons\fc-webicon-windows-s.png" />
+    <Content Include="img\social-icons\fc-webicon-windows.png" />
+    <Content Include="img\social-icons\fc-webicon-windows.svg" />
+    <Content Include="img\social-icons\fc-webicon-wordpress-m.png" />
+    <Content Include="img\social-icons\fc-webicon-wordpress-s.png" />
+    <Content Include="img\social-icons\fc-webicon-wordpress.png" />
+    <Content Include="img\social-icons\fc-webicon-wordpress.svg" />
+    <Content Include="img\social-icons\fc-webicon-xing-m.png" />
+    <Content Include="img\social-icons\fc-webicon-xing-s.png" />
+    <Content Include="img\social-icons\fc-webicon-xing.png" />
+    <Content Include="img\social-icons\fc-webicon-xing.svg" />
+    <Content Include="img\social-icons\fc-webicon-yelp-m.png" />
+    <Content Include="img\social-icons\fc-webicon-yelp-s.png" />
+    <Content Include="img\social-icons\fc-webicon-yelp.png" />
+    <Content Include="img\social-icons\fc-webicon-yelp.svg" />
+    <Content Include="img\social-icons\fc-webicon-youtube-m.png" />
+    <Content Include="img\social-icons\fc-webicon-youtube-s.png" />
+    <Content Include="img\social-icons\fc-webicon-youtube.png" />
+    <Content Include="img\social-icons\fc-webicon-youtube.svg" />
+    <Content Include="img\social-icons\fc-webicon-youversion-m.png" />
+    <Content Include="img\social-icons\fc-webicon-youversion-s.png" />
+    <Content Include="img\social-icons\fc-webicon-youversion.png" />
+    <Content Include="img\social-icons\fc-webicon-youversion.svg" />
+    <Content Include="img\social-icons\fc-webicon-zerply-m.png" />
+    <Content Include="img\social-icons\fc-webicon-zerply-s.png" />
+    <Content Include="img\social-icons\fc-webicon-zerply.png" />
+    <Content Include="img\social-icons\fc-webicon-zerply.svg" />
+    <Content Include="img\work\1.jpg" />
+    <Content Include="img\work\2.jpg" />
+    <Content Include="img\work\3.jpg" />
+    <Content Include="js\foundation\app.js" />
+    <Content Include="js\foundation\jquery.cookie.js" />
+    <Content Include="js\foundation\jquery.event.move.js" />
+    <Content Include="js\foundation\jquery.event.swipe.js" />
+    <Content Include="js\foundation\jquery.foundation.accordion.js" />
+    <Content Include="js\foundation\jquery.foundation.alerts.js" />
+    <Content Include="js\foundation\jquery.foundation.buttons.js" />
+    <Content Include="js\foundation\jquery.foundation.clearing.js" />
+    <Content Include="js\foundation\jquery.foundation.forms.js" />
+    <Content Include="js\foundation\jquery.foundation.joyride.js" />
+    <Content Include="js\foundation\jquery.foundation.magellan.js" />
+    <Content Include="js\foundation\jquery.foundation.mediaQueryToggle.js" />
+    <Content Include="js\foundation\jquery.foundation.navigation.js" />
+    <Content Include="js\foundation\jquery.foundation.orbit.js" />
+    <Content Include="js\foundation\jquery.foundation.reveal.js" />
+    <Content Include="js\foundation\jquery.foundation.tabs.js" />
+    <Content Include="js\foundation\jquery.foundation.tooltips.js" />
+    <Content Include="js\foundation\jquery.foundation.topbar.js" />
+    <Content Include="js\foundation\jquery.js" />
+    <Content Include="js\foundation\jquery.offcanvas.js" />
+    <Content Include="js\foundation\jquery.placeholder.js" />
+    <Content Include="js\foundation\modernizr.foundation.js" />
+    <Content Include="js\isotope.js" />
+    <Content Include="js\jquery.ba-cond.min.js" />
+    <Content Include="js\jquery.slitslider.js" />
+    <Content Include="js\twitter.js" />
+    <Content Include="Services\mail-data.htm" />
+    <Content Include="Services\mail-template.htm" />
+    <Content Include="Scripts\jquery-1.7.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.7.1.js" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-2.1.0.debug.js" />
+    <Content Include="Scripts\knockout-2.1.0.js" />
+    <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="admin\ipnhandler.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Images\accent.png" />
+    <Content Include="Images\bullet.png" />
+    <Content Include="Images\heroAccent.png" />
+    <Content Include="Images\orderedList0.png" />
+    <Content Include="Images\orderedList1.png" />
+    <Content Include="Images\orderedList2.png" />
+    <Content Include="Images\orderedList3.png" />
+    <Content Include="Images\orderedList4.png" />
+    <Content Include="Images\orderedList5.png" />
+    <Content Include="Images\orderedList6.png" />
+    <Content Include="Images\orderedList7.png" />
+    <Content Include="Images\orderedList8.png" />
+    <Content Include="Images\orderedList9.png" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\_RemoveExternalLoginsPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Models\Tesi.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Tesi.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Tesionline\personali.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Tesionline\indexPayed.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Tesionline\pagamento.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\Uploads\" />
+    <Folder Include="Uploads\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Stato\upload.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Stato\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Stato\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Stato\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Stato\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Stato\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\BK _Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin\Admin.Master" />
+    <None Include="fonts\accessibility_foundicons.eot" />
+    <None Include="fonts\accessibility_foundicons.ttf" />
+    <None Include="fonts\accessibility_foundicons.woff" />
+    <None Include="fonts\general_enclosed_foundicons.eot" />
+    <None Include="fonts\general_enclosed_foundicons.ttf" />
+    <None Include="fonts\general_enclosed_foundicons.woff" />
+    <None Include="fonts\general_foundicons.eot" />
+    <None Include="fonts\general_foundicons.ttf" />
+    <None Include="fonts\general_foundicons.woff" />
+    <None Include="fonts\social_foundicons.eot" />
+    <None Include="fonts\social_foundicons.ttf" />
+    <None Include="fonts\social_foundicons.woff" />
+    <None Include="sass\style.scss" />
+    <None Include="sass\_settings.scss" />
+    <Content Include="Views\Stato\noauth.cshtml" />
+    <Content Include="Views\Home\faqs.cshtml" />
+    <Content Include="Views\Tesionline\index.cshtml" />
+    <Content Include="Views\Home\Spedizione.cshtml" />
+    <Content Include="Views\Home\Pagamento.cshtml" />
+    <Content Include="Views\Stato\test.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55135</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/KiLabTesi</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

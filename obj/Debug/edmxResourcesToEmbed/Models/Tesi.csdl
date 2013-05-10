@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Tesi" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="TesiContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="File" EntityType="Tesi.File" />
+    <EntitySet Name="Logs" EntityType="Tesi.Logs" />
+    <EntitySet Name="Rilegatura" EntityType="Tesi.Rilegatura" />
+    <EntitySet Name="Spediz" EntityType="Tesi.Spediz" />
+    <EntitySet Name="Ordine" EntityType="Tesi.Ordine" />
+    <AssociationSet Name="FilesOFOrder" Association="Tesi.FilesOFOrder">
+      <End Role="Ordine" EntitySet="Ordine" />
+      <End Role="File" EntitySet="File" />
+    </AssociationSet>
+    <AssociationSet Name="RilegaturaOrdine" Association="Tesi.RilegaturaOrdine">
+      <End Role="Rilegatura" EntitySet="Rilegatura" />
+      <End Role="Ordine" EntitySet="Ordine" />
+    </AssociationSet>
+    <AssociationSet Name="SpedizioneOrdine" Association="Tesi.SpedizioneOrdine">
+      <End Role="Spediz" EntitySet="Spediz" />
+      <End Role="Ordine" EntitySet="Ordine" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="File">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Nome" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PercorsoFisico" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Note" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Stampato" />
+    <Property Type="Boolean" Name="Bozza" />
+    <Property Type="Boolean" Name="Eliminato" />
+    <Property Type="Int32" Name="DimensioneKb" />
+    <Property Type="Int32" Name="OrdineID" />
+    <Property Type="DateTime" Name="Data" />
+    <NavigationProperty Name="Ordine" Relationship="Tesi.FilesOFOrder" FromRole="File" ToRole="Ordine" />
+  </EntityType>
+  <EntityType Name="Logs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Testo" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="Data" />
+    <Property Type="String" Name="CodEx" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Rilegatura">
+    <Key>
+      <PropertyRef Name="RilegaturaID" />
+    </Key>
+    <Property Type="Int32" Name="RilegaturaID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Titolo" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Descrizione" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Foto" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="delete" Nullable="false" />
+    <Property Type="Decimal" Name="Costo" Precision="19" Scale="4" />
+    <NavigationProperty Name="Ordine" Relationship="Tesi.RilegaturaOrdine" FromRole="Rilegatura" ToRole="Ordine" />
+  </EntityType>
+  <EntityType Name="Spediz">
+    <Key>
+      <PropertyRef Name="SpedizID" />
+    </Key>
+    <Property Type="Int32" Name="SpedizID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Titolo" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Descrizione" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="Prezzo" Precision="19" Scale="4" />
+    <Property Type="Boolean" Name="deleted" Nullable="false" />
+    <NavigationProperty Name="Ordine" Relationship="Tesi.SpedizioneOrdine" FromRole="Spediz" ToRole="Ordine" />
+  </EntityType>
+  <EntityType Name="Ordine">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="DateTime" Name="Data" />
+    <Property Type="String" Name="Email" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Token" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="TokenScadenza" />
+    <Property Type="Boolean" Name="Eliminato" />
+    <Property Type="DateTime" Name="StAperto10" />
+    <Property Type="DateTime" Name="StPagato20" />
+    <Property Type="DateTime" Name="StInvioBozza30" />
+    <Property Type="DateTime" Name="StRicezioneFile40" />
+    <Property Type="DateTime" Name="StAttesaSpedizione50" />
+    <Property Type="DateTime" Name="StSpedito60" />
+    <Property Type="DateTime" Name="StChiuso70" />
+    <Property Type="Int32" Name="SpedTipo" />
+    <Property Type="Int32" Name="Spedriserva" />
+    <Property Type="String" Name="SpedNome" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SpedCognome" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SpedIndirizzo" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SpedCitta" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="GiornoLaurea" />
+    <Property Type="String" Name="SpedCAP" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CodFiscalePersonale" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="StampeBN" />
+    <Property Type="Int32" Name="StampeColori" />
+    <Property Type="Decimal" Name="CostoBN" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="CostoCOLORI" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="CostoSpedizione" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="CostoFisso" Precision="19" Scale="4" />
+    <Property Type="Int32" Name="TipoRillegatura" />
+    <Property Type="Decimal" Name="CostoRillegatura" Precision="19" Scale="4" />
+    <Property Type="Boolean" Name="BozzaAcquistata" Nullable="false" />
+    <Property Type="Decimal" Name="CostoBozza" Precision="19" Scale="4" />
+    <Property Type="Int32" Name="IVA" />
+    <Property Type="Decimal" Name="CostoTotale" Precision="19" Scale="4" />
+    <Property Type="DateTime" Name="FatturaEmessa" />
+    <Property Type="Int32" Name="CopieStampare" />
+    <Property Type="Boolean" Name="CartaPlus" Nullable="false" />
+    <Property Type="Boolean" Name="FronteRetro" Nullable="false" />
+    <Property Type="String" Name="Cellulare" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="CostoCartaPlus" Precision="19" Scale="4" />
+    <Property Type="String" Name="PagamentoId" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Note" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="File" Relationship="Tesi.FilesOFOrder" FromRole="Ordine" ToRole="File" />
+    <NavigationProperty Name="Rilegatura" Relationship="Tesi.RilegaturaOrdine" FromRole="Ordine" ToRole="Rilegatura" />
+    <NavigationProperty Name="Spediz" Relationship="Tesi.SpedizioneOrdine" FromRole="Ordine" ToRole="Spediz" />
+  </EntityType>
+  <Association Name="FilesOFOrder">
+    <End Type="Tesi.Ordine" Role="Ordine" Multiplicity="0..1" />
+    <End Type="Tesi.File" Role="File" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ordine">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="File">
+        <PropertyRef Name="OrdineID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RilegaturaOrdine">
+    <End Type="Tesi.Rilegatura" Role="Rilegatura" Multiplicity="0..1" />
+    <End Type="Tesi.Ordine" Role="Ordine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rilegatura">
+        <PropertyRef Name="RilegaturaID" />
+      </Principal>
+      <Dependent Role="Ordine">
+        <PropertyRef Name="TipoRillegatura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SpedizioneOrdine">
+    <End Type="Tesi.Spediz" Role="Spediz" Multiplicity="0..1" />
+    <End Type="Tesi.Ordine" Role="Ordine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Spediz">
+        <PropertyRef Name="SpedizID" />
+      </Principal>
+      <Dependent Role="Ordine">
+        <PropertyRef Name="SpedTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

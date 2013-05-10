@@ -1,0 +1,43 @@
+﻿@model HttpPostedFileBase
+
+@{
+    ViewBag.Title = "upload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+  <section class="blog-container diff">
+    <div class="blog-inner-container">
+    <div class="row">
+      <div class="one columns centered">
+        <span class="work-triangle-top">&nbsp;</span>
+      </div>
+    </div>
+
+    <div class="row">
+    
+
+
+
+   
+   @using (Html.BeginForm("upload", "Stato", FormMethod.Post, new { enctype = "multipart/form-data" }))
+   {
+       <h3>Seleziona il file: </h3>
+    <input type="file" name="file" class = "button secondary large"  />
+       <p>&nbsp;</p>
+       <div>
+       @Html.ActionLink("Indietro", "Index", "", new { @class = "button secondary" })
+    <input type="submit" value="Invia" class = "button alert" />
+    </div>
+   }
+    
+
+<div>
+    
+</div>
+  </div>
+  </div>
+  </section>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,148 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@section featured {
+   
+}
+<section class="recent-content-tabs diff">
+
+
+	<div class="row">
+			<div class="one columns centered">
+				<span class="recent-content-triangle">&nbsp;</span>
+			</div>
+		</div>
+<section class="row">
+  <div class="twelve columns">
+
+<div class="tabs-content-container">
+
+<ul class="tabs-content ">
+<!--
+  <li class="active" id="simple1Tab">
+    <div class="row">
+      <div class="four columns">
+        <header class="tab-title">
+              <a href="#">
+                 <h2 class="blog-title">Stampa la tua tesi in pochi minuti</h2>
+              </a>
+              <a href="#">
+                <h6>12 Dic 2012</h6>
+              </a>
+          </header>
+      </div>
+      <div class="eight columns">
+        <img src="img/blog/blog-6.png" alt="blog">
+        <div class="blog-content">
+              <p>Inizia subito il tuo preventivo e in 30 secondi saprai il costo della tua tesi personalizzata.</p>
+
+              <a class="radius button black right" href="#">Metodo di lavoro</a>
+            </div>
+      </div>
+    </div>
+
+  </li>
+  <li id="simple2Tab">
+
+
+
+    <div class="row">
+      <div class="four columns">
+        <header class="tab-title">
+              <a href="#">
+                 <h2 class="blog-title">The New fancy laptops</h2>
+              </a>
+              <a href="#">
+                <h6>Sep, 14th 2012</h6>
+              </a>
+          </header>
+      </div>
+      <div class="eight columns">
+        <img src="img/blog/blog-3.png" alt="blog">
+        <div class="blog-content">
+              <p>How can I start using HTML5 if older browsers don’t support it? But the question itself is misleading. HTML5 is not one big thing.</p>
+              <p>
+                You may well ask: “How can I start using HTML5 if older browsers don’t support it?” But the question itself is misleading.
+              </p>
+
+
+              <a class="radius button black right" href="#">Check article</a>
+            </div>
+      </div>
+
+    </div>
+  </li>
+  -->
+  <li id="simple3Tab">
+    <div class="row">
+      <div class="four columns">
+        <header class="tab-title">
+              <a href="#">
+                 <h2 class="blog-title">Controlla lo stato del tuo ordine</h2>
+              </a>
+              <a href="#">
+                <h6>20 Dic 2012</h6>
+              </a>
+          </header>
+      </div>
+      <div class="eight columns">
+        <img src="@Url.Content("~/img/slider/slyder_check.jpg")" alt="blog">
+        <div class="blog-content">
+              <p>In qualunque momento puoi controllare lo stato della tua tesi, per verificare se è stata stampata o spedita.</p>
+
+
+
+
+              <a class="radius button black right" href="@Url.Action("index", "stato")">Controlla</a>
+            </div>
+      </div>
+
+    </div>
+  </li>
+  <li id="simple4Tab" class="active">
+    <div class="row">
+      <div class="four columns">
+        <header class="tab-title">
+              <a href="#">
+              	<h2 class="blog-title">Fai il tuo preventivo in 30 secondi</h2>
+              </a>
+              <a href="#">
+                <h6>20 Dic 2012</h6>
+              </a>
+          </header>
+      </div>
+      <div class="eight columns">
+        <img src="@Url.Content("~/img/slider/slyder_tesi.jpg")" alt="blog">
+        <div class="blog-content">
+              <p>Hai la possibilità di indicare i dati relativi alla tua tesi e scoprire subito come è conveniente stampare online.</p>
+              <p>
+                Il preventivo è gratuito e non ti impegna in nessun modo ad acquistare. Potrai decidere poi con calma cosa fare.
+              </p>
+
+
+
+              <a class="radius button black right" href="@Url.Action("index", "tesionline")">Inizia subito</a>
+            </div>
+      </div>
+    </div>
+  </li>
+</ul>
+<div class="row">
+  <div class="four columns ">
+    <div class="recent-tabs-icons right">
+      <dl class="tabs">
+        <!--<dd ><a href="#simple1"><i class="general foundicon-website"></i></a></dd>
+        <dd><a href="#simple2"><i class="general foundicon-photo"></i></a></dd>-->
+        <dd><a href="#simple3"><i class="general foundicon-graph"></i></a></dd>
+        <dd class="active"><a href="#simple4"><i class="general foundicon-clock"></i></a></dd>
+      </dl>
+    </div>
+  </div>
+</div>
+</div>
+  </div>
+</section>
+
+
+
+</section> <!-- end section-tabs -->

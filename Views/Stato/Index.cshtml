@@ -1,0 +1,143 @@
+﻿@model IEnumerable<KiLab.Models.File>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<section class="recent-content-tabs diff">
+	<div class="row">
+			<div class="one columns centered">
+				<span class="recent-content-triangle">&nbsp;</span>
+			</div>
+		</div>
+<section class="row">
+
+
+
+<div class="work-content">
+<div class="row">
+    
+            <div class="three columns mobile-two">
+                
+                <h2  class="work-title">Inserito:</h2>
+               
+            </div>
+            <div class="three columns mobile-two">
+                <h3 class="work-description lead">@ViewBag.Ordine.Data</h3>
+            </div>
+    
+            <div class="three columns mobile-two">
+                <h2 class="work-title">Pagato:</h2>
+
+            </div>
+            <div class="three columns mobile-two">
+                
+                <h3 class="work-description lead"><a href="@Url.Action("pagamento", "tesionline")">  @ViewBag.Ordine.StPagato20</a></h3>
+                @if (ViewBag.Ordine.StPagato20 == null)
+                { @Html.ActionLink("Paga adesso", "pagamento", "tesionline","", new { @class = "button alert" })  }
+             </div>
+    </div>
+    <div class="row">
+            <div class="three columns mobile-two">
+                <h2  class="work-title">Bozza inviata in data:</h2>
+
+            </div>
+            <div class="three columns mobile-two">
+                <h3 class="work-description lead"> @ViewBag.Ordine.StInvioBozza30</h3>
+            </div>
+            <div class="three columns mobile-two">
+                <h2  class="work-title">Spedito in data:</h2>
+
+            </div>
+            <div class="three columns mobile-two">
+                <h3 class="work-description lead">@ViewBag.Ordine.StSpedito60</h3>
+            </div>
+    </div>
+    <div class="row">
+            <div class="three columns mobile-two">
+                <h2  class="work-title">Fattura emessa:</h2>
+
+            </div>
+            <div class="three columns mobile-two">
+                <h3 class="work-description lead">@ViewBag.Ordine.FatturaEmessa</h3>
+            </div>
+            <div class="six columns mobile-two">
+                &nbsp;
+            </div>
+    </div>
+   </div>
+
+
+  <div  class="twelve columns">
+  <p>
+  &nbsp;
+  </p>
+<p>
+    @Html.ActionLink("Upload File", "Upload","", new { @class = "button alert" })
+</p>
+<table width="90%">
+    <tr>
+        <th>
+            <h4>Nome file</h4>
+        </th>
+        
+        <th>
+           <h4>Note</h4>
+        </th>
+        <th>
+            <h4>Stampato</h4>
+        </th>
+        <th>
+            <h4>E' Bozza</h4>
+        </th>
+        
+        <th>
+            <h4>Data caricamento</h4>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Note)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stampato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bozza)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+        <td>
+            @if (item.Stampato != true)
+            {
+                
+                @Html.ActionLink("Modifica", "Edit", new { id = item.Id }, new { @class = "button secondary" }) 
+            }
+            &nbsp;
+            @if (item.Stampato != true) 
+            {
+                @Html.ActionLink("Elimina", "Delete", new { id = item.Id }, new { @class = "button secondary", onclick = "return confirm('Sei sicuro di eliminare questo file?');" })
+            }
+        </td>
+    </tr>
+}
+
+</table>
+<p>&nbsp;
+</p>
+<p>&nbsp;</p>
+</div>
+
+</div>
+</section>

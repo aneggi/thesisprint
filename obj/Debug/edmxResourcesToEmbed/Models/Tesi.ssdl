@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Tesi.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="TesiStoreContainer">
+    <EntitySet Name="File" EntityType="Tesi.Store.File" store:Type="Tables" />
+    <EntitySet Name="Logs" EntityType="Tesi.Store.Logs" store:Type="Tables" />
+    <EntitySet Name="Ordine" EntityType="Tesi.Store.Ordine" store:Type="Tables" />
+    <EntitySet Name="Rilegatura" EntityType="Tesi.Store.Rilegatura" store:Type="Tables" />
+    <EntitySet Name="Spediz" EntityType="Tesi.Store.Spediz" store:Type="Tables" />
+    <AssociationSet Name="FilesOFOrder" Association="Tesi.Store.FilesOFOrder">
+      <End Role="Ordine" EntitySet="Ordine" />
+      <End Role="File" EntitySet="File" />
+    </AssociationSet>
+    <AssociationSet Name="RilegaturaOrdine" Association="Tesi.Store.RilegaturaOrdine">
+      <End Role="Rilegatura" EntitySet="Rilegatura" />
+      <End Role="Ordine" EntitySet="Ordine" />
+    </AssociationSet>
+    <AssociationSet Name="SpedizioneOrdine" Association="Tesi.Store.SpedizioneOrdine">
+      <End Role="Spediz" EntitySet="Spediz" />
+      <End Role="Ordine" EntitySet="Ordine" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="File">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="nvarchar" MaxLength="100" />
+    <Property Name="PercorsoFisico" Type="nvarchar" MaxLength="500" />
+    <Property Name="Note" Type="nvarchar" MaxLength="500" />
+    <Property Name="Stampato" Type="bit" />
+    <Property Name="Bozza" Type="bit" />
+    <Property Name="Eliminato" Type="bit" />
+    <Property Name="DimensioneKb" Type="int" />
+    <Property Name="OrdineID" Type="int" />
+    <Property Name="Data" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Logs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Testo" Type="nvarchar" />
+    <Property Name="Data" Type="datetime" />
+    <Property Name="CodEx" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Ordine">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Data" Type="datetime" />
+    <Property Name="Email" Type="nvarchar" MaxLength="150" />
+    <Property Name="Token" Type="nvarchar" MaxLength="100" />
+    <Property Name="TokenScadenza" Type="datetime" />
+    <Property Name="Eliminato" Type="bit" />
+    <Property Name="StAperto10" Type="datetime" />
+    <Property Name="StPagato20" Type="datetime" />
+    <Property Name="StInvioBozza30" Type="datetime" />
+    <Property Name="StRicezioneFile40" Type="datetime" />
+    <Property Name="StAttesaSpedizione50" Type="datetime" />
+    <Property Name="StSpedito60" Type="datetime" />
+    <Property Name="StChiuso70" Type="datetime" />
+    <Property Name="SpedTipo" Type="int" />
+    <Property Name="Spedriserva" Type="int" />
+    <Property Name="SpedNome" Type="nvarchar" MaxLength="100" />
+    <Property Name="SpedCognome" Type="nvarchar" MaxLength="100" />
+    <Property Name="SpedIndirizzo" Type="nvarchar" MaxLength="100" />
+    <Property Name="SpedCitta" Type="nvarchar" MaxLength="100" />
+    <Property Name="GiornoLaurea" Type="datetime" />
+    <Property Name="SpedCAP" Type="nvarchar" MaxLength="100" />
+    <Property Name="CodFiscalePersonale" Type="nvarchar" MaxLength="100" />
+    <Property Name="StampeBN" Type="int" />
+    <Property Name="StampeColori" Type="int" />
+    <Property Name="CostoBN" Type="numeric" Precision="19" Scale="4" />
+    <Property Name="CostoCOLORI" Type="numeric" Precision="19" Scale="4" />
+    <Property Name="CostoSpedizione" Type="numeric" Precision="19" Scale="4" />
+    <Property Name="CostoFisso" Type="numeric" Precision="19" Scale="4" />
+    <Property Name="TipoRillegatura" Type="int" />
+    <Property Name="CostoRillegatura" Type="numeric" Precision="19" Scale="4" />
+    <Property Name="BozzaAcquistata" Type="bit" Nullable="false" />
+    <Property Name="CostoBozza" Type="numeric" Precision="19" Scale="4" />
+    <Property Name="IVA" Type="int" />
+    <Property Name="CostoTotale" Type="numeric" Precision="19" Scale="4" />
+    <Property Name="FatturaEmessa" Type="datetime" />
+    <Property Name="CopieStampare" Type="int" />
+    <Property Name="CartaPlus" Type="bit" Nullable="false" />
+    <Property Name="FronteRetro" Type="bit" Nullable="false" />
+    <Property Name="Cellulare" Type="nvarchar" MaxLength="100" />
+    <Property Name="CostoCartaPlus" Type="numeric" Precision="19" Scale="4" />
+    <Property Name="PagamentoId" Type="nvarchar" MaxLength="250" />
+    <Property Name="Note" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Rilegatura">
+    <Key>
+      <PropertyRef Name="RilegaturaID" />
+    </Key>
+    <Property Name="RilegaturaID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Titolo" Type="nvarchar" MaxLength="100" />
+    <Property Name="Descrizione" Type="nvarchar" MaxLength="500" />
+    <Property Name="Foto" Type="nvarchar" MaxLength="250" />
+    <Property Name="delete" Type="bit" Nullable="false" />
+    <Property Name="Costo" Type="numeric" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="Spediz">
+    <Key>
+      <PropertyRef Name="SpedizID" />
+    </Key>
+    <Property Name="SpedizID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Titolo" Type="nvarchar" MaxLength="100" />
+    <Property Name="Descrizione" Type="nvarchar" MaxLength="500" />
+    <Property Name="Prezzo" Type="numeric" Precision="19" Scale="4" />
+    <Property Name="deleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FilesOFOrder">
+    <End Role="Ordine" Type="Tesi.Store.Ordine" Multiplicity="0..1" />
+    <End Role="File" Type="Tesi.Store.File" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ordine">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="File">
+        <PropertyRef Name="OrdineID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RilegaturaOrdine">
+    <End Role="Rilegatura" Type="Tesi.Store.Rilegatura" Multiplicity="0..1" />
+    <End Role="Ordine" Type="Tesi.Store.Ordine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rilegatura">
+        <PropertyRef Name="RilegaturaID" />
+      </Principal>
+      <Dependent Role="Ordine">
+        <PropertyRef Name="TipoRillegatura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SpedizioneOrdine">
+    <End Role="Spediz" Type="Tesi.Store.Spediz" Multiplicity="0..1" />
+    <End Role="Ordine" Type="Tesi.Store.Ordine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Spediz">
+        <PropertyRef Name="SpedizID" />
+      </Principal>
+      <Dependent Role="Ordine">
+        <PropertyRef Name="SpedTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

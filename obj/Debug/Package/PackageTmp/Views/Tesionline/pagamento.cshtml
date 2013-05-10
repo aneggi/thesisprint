@@ -1,0 +1,248 @@
+﻿@model KiLab.Models.Ordine
+
+@{
+    ViewBag.Title = "pagamento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="row">
+    <div class="six columns centered">
+      <section class="tagline">
+        <h3><a href="@Url.Action("index", "tesionline")"><i class="gen-enclosed foundicon-settings"></i></a>&nbsp<i class="general foundicon-right-arrow"></i>&nbsp;<a href="@Url.Action("personali", "tesionline")"><i class="gen-enclosed foundicon-address-book"></i></a>&nbsp;<i class="general foundicon-right-arrow"></i>&nbsp; Riepilogo e pagamento&nbsp;<span class="contact-icon tada"><i class="gen-enclosed foundicon-cart"></i></span></h3>
+      </section>
+    </div>
+  </div>
+  <section class="blog-container diff">
+    <div class="blog-inner-container">
+    <div class="row">
+      <div class="one columns centered">
+        <span class="work-triangle-top">&nbsp;</span>
+      </div>
+    </div>
+
+    <div class="work-content">
+    <div class="row">
+       
+        <div class="three columns mobile-two">
+
+                <h3  class="work-title-black">Stampe bianco e nero:</h3>
+
+            </div>
+            <div class="three columns mobile-two">
+                <h4 class="work-description lead">@Html.DisplayFor(model => model.StampeBN)</h4>
+            </div>
+            <div class="three columns mobile-two">
+
+                <h3  class="work-title-black">Stampe a colori:</h3>
+
+            </div>
+
+         
+            <div class="three columns mobile-two">
+                <h4 class="work-description lead">@Html.DisplayFor(model => model.StampeColori)</h4>
+            </div>
+            
+         </div>
+         <div class="row">
+            <div class="three columns mobile-two">
+
+                <h3  class="work-title-black">Tipo rilegatura:</h3>
+
+            </div>
+            <div class="three columns mobile-two">
+                <h4 class="work-description lead">@Html.DisplayFor(model => model.Rilegatura.Titolo)</h4>
+            </div>
+            <div class="three columns mobile-two">
+
+                <h3  class="work-title-black">Bozza da stampare:</h3>
+
+            </div>
+            
+            <div class="three columns mobile-two">
+                <h4 class="work-description lead">@Html.DisplayFor(model => model.BozzaAcquistata)</h4>
+            </div>
+
+      </div>
+         <div class="row">
+            <div class="three columns mobile-two">
+
+                <h3  class="work-title-black">Copie tesi:</h3>
+
+            </div>
+            <div class="three columns mobile-two">
+                <h4 class="work-description lead">@Html.DisplayFor(model => model.CopieStampare)</h4>
+            </div>
+
+            <div class="three columns mobile-two">
+
+                <h3  class="work-title-black">Carta plus:</h3>
+
+            </div>
+            <div class="three columns mobile-two">
+                <h4 class="work-description lead">@Html.DisplayFor(model => model.CartaPlus)</h4>
+            </div>
+            </div>
+         <div class="row">
+            <div class="three columns mobile-two">
+
+                <h3  class="work-title-black">Fronte e retro:</h3>
+
+            </div>
+            <div class="three columns mobile-two">
+                <h4 class="work-description lead">@Html.DisplayFor(model => model.FronteRetro)</h4>
+            </div>
+            <div class="three columns mobile-two">&nbsp;
+            </div>
+            <div class="three columns mobile-two">&nbsp;
+            </div>
+
+
+    </div>
+    </div>
+    
+    <div class="work-content">
+    <div class="row">
+        <p>&nbsp;
+        </p>
+        <p>&nbsp;
+        </p>
+        <div class="six columns mobile-two">
+
+                <h3  class="work-title-black">Email:</h3>
+
+            </div>
+            <div class="six columns mobile-two">
+                <h4 class="work-description lead">@Html.DisplayFor(model => model.Email)</h4>
+            </div>
+
+            <div class="six columns mobile-two">
+
+                <h3  class="work-title-black">Cellulare:</h3>
+
+            </div>
+            <div class="six columns mobile-two">
+                <h4 class="work-description lead">@Html.DisplayFor(model => model.Cellulare)</h4>
+            </div>
+            <div class="six columns mobile-two">
+
+                <h3  class="work-title-black">Indirizzo spedizione:</h3>
+
+            </div>
+            <div class="six columns mobile-two">
+                <h4 class="work-description lead">
+                
+                     @Html.DisplayFor(model => model.SpedNome)  @Html.DisplayFor(model => model.SpedCognome) 
+                    <br />
+                     @Html.DisplayFor(model => model.SpedIndirizzo)
+                     <br />
+                      @Html.DisplayFor(model => model.SpedCAP) @Html.DisplayFor(model => model.SpedCitta)
+                
+                </h4>
+            </div>
+    </div>
+    </div>
+
+
+    <div class="row">
+   <!-- <div class="two colums">
+        @Html.ActionLink("Torna al preventivo", "index", new { id = Model.Id }, new { @class = "button secondary" })
+                @Html.ActionLink("Torna ai dati personali", "personali", new { id=Model.Id}, new {@class = "button secondary" })
+    
+    </div>
+    <div class="eight colums">-->
+    <article class="blog-inner-content-container">
+<fieldset>
+
+   
+    <div class="work-content">
+   
+    
+            
+
+
+            
+            
+            <div class="fourth columns mobile-two">
+
+                <h2  class="work-title-black">Costo totale IVA inclusa:</h2>
+
+            </div>
+            <div class="three columns mobile-two">
+                <h2 class="work-description lead">@Html.DisplayFor(model => model.CostoTotale)</h2>
+            </div>
+            
+            <div class="three columns mobile-two">
+                <h4 class="work-description lead"></h4>
+                @if (Model.StPagato20 == null)
+                {
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                    <input type="hidden" name="cmd" value="_xclick">
+                    <input type="hidden" name="address_ override" value="alessa_1355317287_biz@gmail.com">
+                    <INPUT TYPE="hidden" name="charset" value="utf-8">
+                    <INPUT TYPE="hidden" NAME="return" value="localhost/kilabtesi/completo">
+                    <INPUT TYPE="hidden" NAME="currency_code" value="EUR">
+                    <input type="hidden" name="business" value="alessa_1355317287_biz@gmail.com">
+
+
+                    <input type="hidden" name="item_name" value="Stampa e riegatura Tesi come da ordine n.@Model.Id">
+                    <input type="hidden" name="item_number" value="@Model.Id">
+                    <input type="hidden" name="amount" value="@String.Format("{0:F2}", Model.CostoTotale).ToString().Replace(",", ".") ">
+                    <input type="hidden" name="first_name" value="@Model.SpedNome">
+                    <input type="hidden" name="last_name" value="@Model.SpedCognome">
+                    <input type="hidden" name="address1" value="@Model.SpedIndirizzo">
+                    <input type="hidden" name="address2" value="">
+                    <input type="hidden" name="city" value="@Model.SpedCitta">
+                    <input type="hidden" name="state" value="Italy">
+                    <input type="hidden" name="zip" value="@Model.SpedCAP">
+    
+                    <input type="hidden" name="email" value="@Model.Email">
+                    <input type="image" name="submit" border="0"
+                    src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
+                    alt="PayPal - The safer, easier way to pay online" style="width:200px;">
+                </form>
+                }
+                else
+                {
+                    <h3>Pagato<i class="general foundicon-checkmark"></i>:
+                    @Html.DisplayFor(model => model.StPagato20)</h3>
+                    
+                }   
+                    
+                <!-- PayPal Logo --><table border="0" cellpadding="10" cellspacing="0" align="center"><tr><td align="center"></td></tr><tr><td align="center"><a href="#" title="How PayPal Works" onclick="javascript:window.open('https://www.paypal.com/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700');"><img style="width:200px;" src="https://www.paypalobjects.com/webstatic/mktg/logo/AM_SbyPP_mc_vs_dc_ae.jpg" border="0" alt="PayPal Acceptance Mark"></a></td></tr></table><!-- PayPal Logo -->
+
+            </div>
+
+
+            <div class="three columns mobile-two">
+                &nbsp;
+            </div>
+
+    </div>
+    </div>
+
+           
+
+           
+            
+            <div class="three columns mobile-two">
+                
+            </div>
+            
+            
+   
+
+    
+
+
+</fieldset>
+</article>
+</div>
+
+
+
+
+</div>
+</section>

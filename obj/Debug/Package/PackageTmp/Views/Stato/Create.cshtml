@@ -1,0 +1,99 @@
+﻿@model KiLab.Models.File
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>File</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Nome)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Nome)
+            @Html.ValidationMessageFor(model => model.Nome)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PercorsoFisico)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PercorsoFisico)
+            @Html.ValidationMessageFor(model => model.PercorsoFisico)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Note)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Note)
+            @Html.ValidationMessageFor(model => model.Note)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Stampato)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Stampato)
+            @Html.ValidationMessageFor(model => model.Stampato)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Bozza)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Bozza)
+            @Html.ValidationMessageFor(model => model.Bozza)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Eliminato)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Eliminato)
+            @Html.ValidationMessageFor(model => model.Eliminato)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DimensioneKb)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DimensioneKb)
+            @Html.ValidationMessageFor(model => model.DimensioneKb)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OrdineID, "Ordine")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("OrdineID", String.Empty)
+            @Html.ValidationMessageFor(model => model.OrdineID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Data)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Data)
+            @Html.ValidationMessageFor(model => model.Data)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

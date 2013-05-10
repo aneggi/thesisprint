@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<div class="row">
+    <div class="six columns centered">
+      <section class="tagline">
+        <h3>Contattateci &nbsp;<span class="contact-icon tada"><i class="gen-enclosed foundicon-mail"></i></span>  Qui sotto  &nbsp; </h3>
+      </section>
+    </div>
+  </div>
+  <section class="blog-container diff">
+    <div class="blog-inner-container">
+    <div class="row">
+      <div class="one columns centered">
+        <span class="work-triangle-top">&nbsp;</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="twelve columns">
+        <div class="contact-form-container">
+            <!-- Row Layout for forms -->
+            <form id="contact-form">
+              <div class="row">
+                <div class="eight columns">
+
+                    @if (ViewBag.Alert != null)
+            {
+                <div class="alert-box ">
+                  @ViewBag.Alert
+                  <a href="" class="close">×</a>
+                </div>
+            }
+
+                  <textarea name="textarea" id="textarea" cols="30" rows="9" placeholder="Message"></textarea>
+                </div>
+                <div class="four columns">
+                  <input type="text" id="Name" placeholder="Name"  />
+                  <input type="email" id="Email" placeholder="Email" />
+
+                  <button type="submit" class="button black large" href="#">Invia Messaggio</button>
+                </div>
+              </div>
+            </form>
+        </div>
+      </div>
+    </div>

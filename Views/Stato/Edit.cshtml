@@ -1,0 +1,123 @@
+﻿@model KiLab.Models.File
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<section class="blog-container diff">
+    <div class="blog-inner-container">
+    <div class="row">
+      <div class="one columns centered">
+        <span class="work-triangle-top">&nbsp;</span>
+      </div>
+    </div>
+
+    <div class="row">
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        
+        @Html.HiddenFor(model => model.Id)
+
+       
+        <div class="row">
+            <div id="half-first">
+                <h3 class="expertise-title">Nome file: </h3>
+            </div>
+            <div id="half-second">
+                <h4 class="expertise-title">
+                    
+                @Html.DisplayFor(model => model.Nome)
+            
+                </h4>
+            </div>
+        </div>
+
+        
+        <div class="row">
+            <div id="half-first">
+                <h3 class="expertise-title">Note:</h3>
+            </div>
+            <div id="half-second">
+                <h4 class="expertise-title">@Html.EditorFor(model => model.Note)
+            @Html.ValidationMessageFor(model => model.Note)</h4>
+            </div>
+        </div>
+
+        
+        <div class="row">
+            <div id="half-first">
+                <h3 class="expertise-title">Stampato:</h3>
+            </div>
+            <div id="half-second">
+                <h4 class="expertise-title">  @Html.DisplayFor(model => model.Stampato)</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div id="half-first">
+                <h3 class="expertise-title">File bozza stampa:</h3>
+            </div>
+            <div id="half-second">
+                <h4 class="expertise-title"> @Html.EditorFor(model => model.Bozza)
+            @Html.ValidationMessageFor(model => model.Bozza)</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div id="half-first">
+                <h3 class="expertise-title">Data upload:</h3>
+            </div>
+            <div id="half-second">
+                <h4 class="expertise-title">@Html.DisplayFor(model => model.Data)</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div id="half-first">
+                <h2 class="expertise-title">
+                
+                <div>
+    @Html.ActionLink("Indietro", "Index","", new { @class = "button secondary" })
+</div>
+                
+                </h2>
+            </div>
+            <div id="half-second">
+                <h2 class="expertise-title"> <p>
+            <input type="submit" value="Salva" class = "button alert" } />
+        </p></h2>
+            </div>
+        </div>
+       
+        <div class="row">
+            <div id="half-first">
+                <h2 class="expertise-title"></h2>
+            </div>
+            <div id="half-second">
+                <h2 class="expertise-title"></h2>
+            </div>
+        </div>
+
+
+        
+
+        
+        
+
+        
+            
+        
+
+       
+
+
+        
+
+    </fieldset>
+}
+
+
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

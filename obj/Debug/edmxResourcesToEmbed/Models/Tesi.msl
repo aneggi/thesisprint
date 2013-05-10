@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs" Space="C-S">
+  <Alias Key="Model" Value="Tesi" />
+  <Alias Key="Target" Value="Tesi.Store" />
+  <EntityContainerMapping CdmEntityContainer="TesiContainer" StorageEntityContainer="TesiStoreContainer">
+    <EntitySetMapping Name="File">
+      <EntityTypeMapping TypeName="Tesi.File">
+        <MappingFragment StoreEntitySet="File">
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="OrdineID" ColumnName="OrdineID" />
+          <ScalarProperty Name="DimensioneKb" ColumnName="DimensioneKb" />
+          <ScalarProperty Name="Eliminato" ColumnName="Eliminato" />
+          <ScalarProperty Name="Bozza" ColumnName="Bozza" />
+          <ScalarProperty Name="Stampato" ColumnName="Stampato" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="PercorsoFisico" ColumnName="PercorsoFisico" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logs">
+      <EntityTypeMapping TypeName="Tesi.Logs">
+        <MappingFragment StoreEntitySet="Logs">
+          <ScalarProperty Name="CodEx" ColumnName="CodEx" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="Testo" ColumnName="Testo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rilegatura">
+      <EntityTypeMapping TypeName="Tesi.Rilegatura">
+        <MappingFragment StoreEntitySet="Rilegatura">
+          <ScalarProperty Name="Costo" ColumnName="Costo" />
+          <ScalarProperty Name="delete" ColumnName="delete" />
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+          <ScalarProperty Name="Descrizione" ColumnName="Descrizione" />
+          <ScalarProperty Name="Titolo" ColumnName="Titolo" />
+          <ScalarProperty Name="RilegaturaID" ColumnName="RilegaturaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spediz">
+      <EntityTypeMapping TypeName="Tesi.Spediz">
+        <MappingFragment StoreEntitySet="Spediz">
+          <ScalarProperty Name="deleted" ColumnName="deleted" />
+          <ScalarProperty Name="Prezzo" ColumnName="Prezzo" />
+          <ScalarProperty Name="Descrizione" ColumnName="Descrizione" />
+          <ScalarProperty Name="Titolo" ColumnName="Titolo" />
+          <ScalarProperty Name="SpedizID" ColumnName="SpedizID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ordine">
+      <EntityTypeMapping TypeName="Tesi.Ordine">
+        <MappingFragment StoreEntitySet="Ordine">
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="PagamentoId" ColumnName="PagamentoId" />
+          <ScalarProperty Name="CostoCartaPlus" ColumnName="CostoCartaPlus" />
+          <ScalarProperty Name="Cellulare" ColumnName="Cellulare" />
+          <ScalarProperty Name="FronteRetro" ColumnName="FronteRetro" />
+          <ScalarProperty Name="CartaPlus" ColumnName="CartaPlus" />
+          <ScalarProperty Name="CopieStampare" ColumnName="CopieStampare" />
+          <ScalarProperty Name="FatturaEmessa" ColumnName="FatturaEmessa" />
+          <ScalarProperty Name="CostoTotale" ColumnName="CostoTotale" />
+          <ScalarProperty Name="IVA" ColumnName="IVA" />
+          <ScalarProperty Name="CostoBozza" ColumnName="CostoBozza" />
+          <ScalarProperty Name="BozzaAcquistata" ColumnName="BozzaAcquistata" />
+          <ScalarProperty Name="CostoRillegatura" ColumnName="CostoRillegatura" />
+          <ScalarProperty Name="TipoRillegatura" ColumnName="TipoRillegatura" />
+          <ScalarProperty Name="CostoFisso" ColumnName="CostoFisso" />
+          <ScalarProperty Name="CostoSpedizione" ColumnName="CostoSpedizione" />
+          <ScalarProperty Name="CostoCOLORI" ColumnName="CostoCOLORI" />
+          <ScalarProperty Name="CostoBN" ColumnName="CostoBN" />
+          <ScalarProperty Name="StampeColori" ColumnName="StampeColori" />
+          <ScalarProperty Name="StampeBN" ColumnName="StampeBN" />
+          <ScalarProperty Name="CodFiscalePersonale" ColumnName="CodFiscalePersonale" />
+          <ScalarProperty Name="SpedCAP" ColumnName="SpedCAP" />
+          <ScalarProperty Name="GiornoLaurea" ColumnName="GiornoLaurea" />
+          <ScalarProperty Name="SpedCitta" ColumnName="SpedCitta" />
+          <ScalarProperty Name="SpedIndirizzo" ColumnName="SpedIndirizzo" />
+          <ScalarProperty Name="SpedCognome" ColumnName="SpedCognome" />
+          <ScalarProperty Name="SpedNome" ColumnName="SpedNome" />
+          <ScalarProperty Name="Spedriserva" ColumnName="Spedriserva" />
+          <ScalarProperty Name="SpedTipo" ColumnName="SpedTipo" />
+          <ScalarProperty Name="StChiuso70" ColumnName="StChiuso70" />
+          <ScalarProperty Name="StSpedito60" ColumnName="StSpedito60" />
+          <ScalarProperty Name="StAttesaSpedizione50" ColumnName="StAttesaSpedizione50" />
+          <ScalarProperty Name="StRicezioneFile40" ColumnName="StRicezioneFile40" />
+          <ScalarProperty Name="StInvioBozza30" ColumnName="StInvioBozza30" />
+          <ScalarProperty Name="StPagato20" ColumnName="StPagato20" />
+          <ScalarProperty Name="StAperto10" ColumnName="StAperto10" />
+          <ScalarProperty Name="Eliminato" ColumnName="Eliminato" />
+          <ScalarProperty Name="TokenScadenza" ColumnName="TokenScadenza" />
+          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

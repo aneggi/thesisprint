@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "noauth";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+
+
+<section class="expertise-section">
+		<div class="row">
+			<div class="one columns centered">
+				<span class="expertise-triangle">&nbsp;</span>
+			</div>
+		</div>
+    <div class="inner-spacer">
+		<div class="row">
+			<div class="twelve columns">
+				<div class="expertise-content">
+					
+					
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="expertise-container">
+			
+			
+			
+
+
+            @using (Html.BeginForm())
+{
+                <div class="expertise-content">
+    <div class="row">
+            <div id="half-first">
+                <h2 class="expertise-title">Accesso negato</h2>
+            
+            
+            </div>
+            <div id="half-second">
+                <h2 class="expertise-title">Indirizzo email:</h2>
+            </div>
+    </div>
+    <div class="row">
+            <div id="half-first"> <p class="expertise-intro">Mi dispiace ma non sei autorizzato a verificare lo stato del tuo ordine. <br>Se hai già fatto un ordine, inserisci la tua mail qui a fianco e ti invieremo nuovamente il link di accesso <br></p>
+            </div>
+            <div id="half-second">
+            @Html.TextBox("email")
+            @if (ViewBag.Alert != null)
+            {
+                <div class="alert-box ">
+                  @ViewBag.Alert
+                  <a href="" class="close">×</a>
+                </div>
+            }
+            </div>
+    </div>
+    <div class="row">
+            <div id="half-first">
+            </div>
+            <div id="half-second"><input id="Button1" type="submit" value="Invia" class="button black large" />
+            </div>
+    </div>
+    </div>
+}
+
+
+
+		</div> <!-- end expertise-container -->
+		</div> <!-- end row -->
+  </div> <!-- end inner-spacer -->
+
+
+
+
+
+
+
+
+
